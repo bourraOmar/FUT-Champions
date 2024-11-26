@@ -1,6 +1,7 @@
 const openPopup = document.getElementById('open');
 const closePopup = document.getElementById('close');
-const formPopup = document.getElementById('formPopup');
+const formPopup = document.getElementById('form');
+
 
 openPopup.addEventListener("click",()=>{
   formPopup.classList.remove('hidden')
