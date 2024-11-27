@@ -417,14 +417,6 @@ const players = [
 ]
 console.log(players);
 
-
-
-
-const openPopup = document.getElementById('open');
-const closePopup = document.getElementById('close');
-const formPopup = document.getElementById('form');
-const addPlayer = document.getElementById('addPlayer');
-
 let teamInput = document.getElementById('teamPlan');
 let stInput = document.getElementById('ST'); 
 let lwInput = document.getElementById('LW');
@@ -449,10 +441,23 @@ let cardcblInput = document.getElementById('cardCbl');
 let cardcbrInput = document.getElementById('cardCbr'); 
 let cardrbInput = document.getElementById('cardRb'); 
 let cardgkInput = document.getElementById('cardGk'); 
+
+const openPopup = document.getElementById('open');
+const closePopup = document.getElementById('close');
+const formPopup = document.getElementById('form');
+const addPlayer = document.getElementById('addPlayer');
+
+const ajoutForm = document.getElementById('ajoutForm');
+
+const createForm = document.getElementById('createForm');
+let inputName = document.getElementById('Name');
+let inputNastion = document.getElementById('Nationality');
+let inputClub = document.getElementById('Club');
+let inputPost = document.getElementById('Position');
+
+let array = [];
+let index = -1;
  
-
-
-
 
 
 
@@ -461,7 +466,21 @@ let cardgkInput = document.getElementById('cardGk');
 
 openPopup.addEventListener("click",()=>{
   formPopup.classList.remove('hidden')
-})
+});
 closePopup.addEventListener("click",()=>{
   formPopup.classList.add('hidden')
+});
+
+
+createForm.addEventListener("click",(e) => {
+  e.preventDefault();
+  if(inputName.value !== "" || inputNation.value !== "" || inputClub.value !== "" || inputPost.value !== ""){
+      array[index] = {
+        Name : inputName.value,
+        Nation : inputNation.value,
+        Club : inputClub.value,
+        Post : inputPost.value,
+      };
+      index = -1;
+  }
 })
