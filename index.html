@@ -10,7 +10,7 @@
   <title>Document</title>
 </head>
 
-<body class=" bg-gray-700">
+<body class=" bg-gray-700 bg-[url('img/bg.png')] bg-cover bg-no-repeat ">
   <nav>
     <div class="flex justify-around mb-2 p-5 bg-blue-900 text-white">
       <h1 class="p-1 text-white">FUT Champions</h1>
@@ -25,30 +25,45 @@
   <div id="form" class="fixed shadow z-10 inset-0 bg-blue-900 bg-opacity-50 backdrop-blur-sm flex items-center justify-center hidden">
     <div class="flex flex-col justify-center bg-blue-950  rounded-2xl">
       <h2 class="text-white text-center font-bold text-6xl m-7">Add To The Tashkila</h2>
-      <div class="flex flex-col m-4">
-        <label class="text-white text-lg font-semibold mb-2">Player Name</label>
-        <input type="text" placeholder="Player Name" id="teamPlan" name="teamPlan"
-          class="border-2 rounded-lg p-2 bg-transparent text-white">
-      </div>
-
+      
       <div class="flex flex-col m-4">
         <label class="text-white text-lg font-semibold mb-2">Position</label>
         <select id="teamPlan" name="teamPlan" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
-          <option class="text-black" value="ST">ST</option>
-          <option class="text-black" value="LW">LW</option>
-          <option class="text-black" value="RM">RM</option>
-          <option class="text-black" value="CM">CM</option>
-          <option class="text-black" value="CDM">CDM</option>
-          <option class="text-black" value="LB">LB</option>
-          <option class="text-black" value="CB">CB</option>
-          <option class="text-black" value="RB">RB</option>
-          <option class="text-black" value="GK">GK</option>
+          <option class="text-black" value="" selected disabled>Position</option>
+          <option id="ST" class="text-black" value="ST">ST</option>
+          <option id="LW" class="text-black" value="LW">LW</option>
+          <option id="RW" class="text-black" value="RM">RM</option>
+          <option id="CML" class="text-black" value="CM">CML</option>
+          <option id="CMR" class="text-black" value="CM">CMR</option>
+          <option id="CDM" class="text-black" value="CDM">CDM</option>
+          <option id="LB" class="text-black" value="LB">LB</option>
+          <option id="CBL" class="text-black" value="CB">CBL</option>
+          <option id="CBR" class="text-black" value="CB">CBR</option>
+          <option id="RB" class="text-black" value="RB">RB</option>
+          <option id="GK" class="text-black" value="GK">GK</option>
         </select>
       </div>
+
+      <div class="flex flex-col m-4">
+        <label class="text-white text-lg font-semibold mb-2">Player Name</label>
+        <select id="players" name="player" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
+          <option class="text-black" value="" selected disabled>Player Name</option>
+          <option class="text-black" value="">player</option>
+          <option class="text-black" value="">player</option>
+          <option class="text-black" value="">player</option>
+          <option class="text-black" value="">player</option>
+          <option class="text-black" value="">player</option>
+          <option class="text-black" value="">player</option>
+          <option class="text-black" value="">player</option>
+          <option class="text-black" value="">player</option>
+          <option class="text-black" value="">player</option>
+        </select>
+      </div>
+
       <div class="flex m-4 gap-4">
         <button id="close"
           class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
-        <button id="#"
+        <button id="addPlayer"
           class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Add To The Tashkila</button>
       </div>
     </div>
@@ -61,80 +76,91 @@
       <div
         class=" bg-[url(img/stadium_background.webp)] bg-no-repeat bg-cover bg-center md:h-[820px] md:w-[893px] h-[400px]  rounded-2xl ">
         <div class="flex justify-center md:mb-1 mb-6 md:gap-32 gap-8">
-          <button class="flex flex-col items-center">
+          <button id="cardLw" class="flex flex-col items-center">
             <div
               class="mt-5 md:mt-3 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
             <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">LW</p>
           </button>
 
-          <button class="flex flex-col items-center">
+          <button id="cardSt" class="flex flex-col items-center">
             <div
               class="flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
             <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">ST</p>
           </button>
 
-          <button class="flex flex-col items-center">
+          <button id="cardRw" class="flex flex-col items-center">
             <div
               class="mt-5 md:mt-3 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
             <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">RW</p>
           </button>
+
         </div>
+
         <div class="flex justify-center md:gap-[10rem] gap-[5rem]">
 
-          <button class="flex flex-col items-center">
+          <button id="cardCml" class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CM</p>
+            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CML</p>
           </button>
 
-          <button class="flex flex-col items-center">
+          <button id="cardCmr" class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CM</p>
+            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CMR</p>
           </button>
+
         </div>
+
         <div class="flex justify-center md:mb-1 mb-6">
-          <button class="flex flex-col items-center">
+
+          <button id="cardCdm" class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
             <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CDM</p>
           </button>
+
         </div>
+
         <div class="flex justify-center md:mb-0 md:gap-[10rem] gap-[5rem]">
-          <button class="flex flex-col items-center">
+
+          <button id="cardLb" class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
             <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">LB</p>
           </button>
 
-          <button class="flex flex-col items-center">
+          <button id="cardCbl" class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CB</p>
+            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CBL</p>
           </button>
 
-          <button class="flex flex-col items-center">
+          <button id="cardCbr" class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CB</p>
+            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CBR</p>
           </button>
 
-          <button class="flex flex-col items-center">
+          <button id="cardRb" class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
             <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">RB</p>
           </button>
 
         </div>
+
         <div class="flex justify-center md:mt-4 mt-10">
-          <button class="flex flex-col items-center">
+
+          <button id="cardGk" class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
             <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">GK</p>
           </button>
+
         </div>
 
       </div>
