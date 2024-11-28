@@ -22,10 +22,11 @@
 
   <!-- popUpForm -->
 
-  <div id="form" class="fixed shadow z-10 inset-0 bg-blue-900 bg-opacity-50 backdrop-blur-sm flex items-center justify-center hidden">
+  <div id="form"
+    class="fixed shadow z-10 inset-0 bg-blue-900 bg-opacity-50 backdrop-blur-sm flex items-center justify-center hidden">
     <form id="ajoutForm" class="flex flex-col justify-center bg-blue-950  rounded-2xl">
       <h2 class="text-white text-center font-bold text-6xl m-7">Add To The Tashkila</h2>
-      
+
       <div class="flex flex-col m-4">
         <label class="text-white text-lg font-semibold mb-2">Position</label>
         <select id="teamPlan" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
@@ -55,7 +56,8 @@
         <button id="close"
           class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
         <button id="addPlayer"
-          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Add To The Tashkila</button>
+          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Add To The
+          Tashkila</button>
       </div>
     </form>
   </div>
@@ -153,16 +155,18 @@
           </button>
 
         </div>
-
       </div>
 
       <!-- remplacement  -->
 
-      <div  class="bg-blue-950 w-full rounded-2xl mt-4">
-        <h2 class="text-white text-center font-bold text-4xl m-7">Remplacement</h2>
+      <div class="cart bg-blue-950 w-full rounded-2xl mt-4">
+        <h2 class=" text-white text-center font-bold text-4xl m-7">Remplacement</h2>
         <div class="grid grid-cols-6 mb-4">
-          <button class=" flex flex-col items-center">
-            <div class="relative flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+          <!-- <div class="card"></div> -->
+
+          <div class=" flex flex-col items-center">
+            <div
+              class="relative flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               <div class="scale-[2] ml-9 mt-[0.3rem]">
                 <div class="absolute ml-1 mt-2">
                   <p class="text-[0.3rem] font-bold">90</p>
@@ -192,34 +196,42 @@
                 </div>
               </div>
             </div>
-          </button>
+          </div>
 
-          <button class="flex flex-col items-center">
+          <div class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
-          </button>
-          
-          <button class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-          </button>
+          </div>
 
-          <button class="flex flex-col items-center">
+          <div class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
-          </button>
+          </div>
 
-          <button class="flex flex-col items-center">
+          <div class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
-          </button>
+          </div>
 
-          <button class="flex flex-col items-center">
+          <div class="flex flex-col items-center">
             <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
             </div>
-          </button>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+            </div>
+          </div>
         </div>
       </div>
+      
+      <!-- All Players -->
+
+      <div class="bg-blue-950 w-full rounded-2xl mt-4">
+        <h2 class="text-white text-center font-bold text-4xl m-7">All Players</h2>
+        <div id="playersList" class="grid grid-cols-6 mb-4 ml-9 "></div>
+      </div>
+
     </div>
 
     <!-- form -->
@@ -258,45 +270,47 @@
           <option class="text-black" value="RB">RB</option>
           <option class="text-black" value="GK">GK</option>
         </select>
-        <div id="Players" class="hidden grid grid-cols-2 gap-x-4">
+        <div id="Players" class="grid grid-cols-2 gap-x-4">
           <div class="flex flex-col mt-4">
             <label class="text-white text-lg font-semibold mb-2">Pace</label>
-            <input class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+            <input id="Pace" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
               placeholder="Pace" required>
           </div>
           <div class="flex flex-col mt-4">
             <label class="text-white text-lg font-semibold mb-2">Hooting</label>
-            <input class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+            <input id="Hoo" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
               placeholder="Hooting" required>
           </div>
           <div class="flex flex-col mt-4">
             <label class="text-white text-lg font-semibold mb-2">Passing</label>
-            <input class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+            <input id="Pas" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
               placeholder="Passing" required>
           </div>
           <div class="flex flex-col mt-4">
             <label class="text-white text-lg font-semibold mb-2">Dribbling</label>
-            <input class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+            <input id="Dri" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
               placeholder="Dribbling" required>
           </div>
           <div class="flex flex-col mt-4">
             <label class="text-white text-lg font-semibold mb-2">Defending</label>
-            <input class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+            <input id="Def" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
               placeholder="Defending" required>
           </div>
           <div class="flex flex-col mt-4">
-            <label class="text-white text-lg font-semibold mb-2">physical</label>
-            <input class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+            <label class="text-white text-lg font-semibold mb-2">Physical</label>
+            <input id="Phy" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
               placeholder="Physical" required>
           </div>
         </div>
       </div>
       <div class="flex  m-4 gap-4">
-        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Add to List</button>
+        <input id="addPlayer" type="submit" value="Add to List"
+          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">
       </div>
     </div>
   </div>
   <script src="main.js"></script>
+  <script src="allPlayers.js"></script>
 </body>
 
 </html>
@@ -431,3 +445,11 @@
     });
   }
 </script> -->
+
+<!-- // array[index] = {
+  //   Name : inputName.value,
+  //   Nation : inputNation.value,
+  //   Club : inputClub.value,
+  //   Post : inputPost.value,
+  // };
+  // index = -1; -->
