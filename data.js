@@ -1,4 +1,5 @@
-const player1
+const player1 = [
+
   {
     name: "Lionel Messi",
     photo: "https://cdn.sofifa.net/players/158/023/25_120.png",
@@ -14,7 +15,7 @@ const player1
     dribbling: 95,
     defending: 35,
     physical: 65
-  };
+  },
   {
     name: "Cristiano Ronaldo",
     photo: "https://cdn.sofifa.net/players/020/801/25_120.png",
@@ -415,3 +416,4 @@ const player1
     positioning: 85
   }
 ];
+

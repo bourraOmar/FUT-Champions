@@ -12,444 +12,225 @@
 
 <body class=" bg-gray-700 bg-[url('img/bg.png')] bg-cover bg-no-repeat ">
   <nav>
-    <div class="flex justify-around mb-2 p-5 bg-blue-900 text-white">
+    <div class="flex justify-around mb-2 p-5 bg-blue-950 text-white">
       <h1 class="p-1 text-white">FUT Champions</h1>
       <button id="open"
         class="bg-green-500 p-1 pl-2 pr-2 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5">Add to
-        the tachkila</button>
+        the plan</button>
     </div>
   </nav>
 
   <!-- popUpForm -->
 
   <div id="form"
-    class="fixed shadow z-10 inset-0 bg-blue-900 bg-opacity-50 backdrop-blur-sm flex items-center justify-center hidden">
-    <form id="ajoutForm" class="flex flex-col justify-center bg-blue-950  rounded-2xl">
-      <h2 class="text-white text-center font-bold text-6xl m-7">Add To The Tashkila</h2>
-
-      <div class="flex flex-col m-4">
-        <label class="text-white text-lg font-semibold mb-2">Position</label>
-        <select id="teamPlan" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
-          <option class="text-black" value="" selected disabled>Position</option>
-          <option id="ST" class="text-black" value="ST">ST</option>
-          <option id="LW" class="text-black" value="LW">LW</option>
-          <option id="RW" class="text-black" value="RM">RM</option>
-          <option id="CML" class="text-black" value="CM">CML</option>
-          <option id="CMR" class="text-black" value="CM">CMR</option>
-          <option id="CDM" class="text-black" value="CDM">CDM</option>
-          <option id="LB" class="text-black" value="LB">LB</option>
-          <option id="CBL" class="text-black" value="CB">CBL</option>
-          <option id="CBR" class="text-black" value="CB">CBR</option>
-          <option id="RB" class="text-black" value="RB">RB</option>
-          <option id="GK" class="text-black" value="GK">GK</option>
-        </select>
-      </div>
-
-      <div class="flex flex-col m-4">
-        <label class="text-white text-lg font-semibold mb-2">Player Name</label>
-        <select id="players" name="player" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
-          <option class="text-black" value="" selected disabled>Player Name</option>
-        </select>
-      </div>
-
-      <div class="flex m-4 gap-4">
-        <button id="close"
-          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
-        <button id="addPlayer"
-          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Add To The
-          Tashkila</button>
-      </div>
-    </form>
-  </div>
-
-  <!-- staduim -->
-
-  <div class="flex flex-col m-4 gap-4 md:flex md:flex-row md:gap-11">
-    <div class="flex flex-col">
-      <div
-        class=" bg-[url(img/stadium_background.webp)] bg-no-repeat bg-cover bg-center md:h-[820px] md:w-[893px] h-[400px]  rounded-2xl ">
-        <div class="flex justify-center md:mb-1 mb-6 md:gap-32 gap-8">
-          <button id="cardLw" class="flex flex-col items-center">
-            <div
-              class="mt-5 md:mt-3 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">LW</p>
-          </button>
-
-          <button id="cardSt" class="flex flex-col items-center">
-            <div
-              class="flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">ST</p>
-          </button>
-
-          <button id="cardRw" class="flex flex-col items-center">
-            <div
-              class="mt-5 md:mt-3 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">RW</p>
-          </button>
-
+    class="fixed shadow z-10 inset-0 bg-blue-900 bg-opacity-50 backdrop-blur-sm hidden flex items-center justify-center">
+    <div id="creatForm" class="flex flex-col justify-center bg-blue-950  rounded-2xl">
+      <h2 class="text-white text-center font-bold text-4xl m-4">Add Player</h2>
+      <div id="Players" class="grid grid-cols-2 gap-x-4">
+        <div class="flex flex-col mx-4 ">
+          <label class="text-white text-lg font-semibold mb-2">Player Name</label>
+          <input id="Name" type="text" placeholder="Player Name"
+            class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
         </div>
 
-        <div class="flex justify-center md:gap-[10rem] gap-[5rem]">
-
-          <button id="cardCml" class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CML</p>
-          </button>
-
-          <button id="cardCmr" class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CMR</p>
-          </button>
-
+        <div class="flex flex-col mx-4">
+          <label class="text-white text-lg font-semibold mb-2">Nationality</label>
+          <input id="Nastionality" type="text" placeholder="Nationality"
+            class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
         </div>
 
-        <div class="flex justify-center md:mb-1 mb-6">
-
-          <button id="cardCdm" class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CDM</p>
-          </button>
-
+        <div class="flex flex-col mx-4">
+          <label class="text-white text-lg font-semibold mb-2">Club</label>
+          <input id="Club" type="text" placeholder="Club"
+            class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
         </div>
+        <div class="flex flex-col mx-4">
+          <label class="text-white text-lg font-semibold mb-2">Position</label>
+          <select id="Position" name="teamPlan" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
+            <option class="text-black" selected disabled>Position</option>
+            <option class="text-black" value="ST">ST</option>
+            <option class="text-black" value="LW">LW</option>
+            <option class="text-black" value="RW">RW</option>
+            <option class="text-black" value="LCM">CM</option>
+            <option class="text-black" value="RCM">CM</option>
+            <option class="text-black" value="CDM">CDM</option>
+            <option class="text-black" value="LB">LB</option>
+            <option class="text-black" value="LCB">CB</option>
+            <option class="text-black" value="RCB">CB</option>
+            <option class="text-black" value="RB">RB</option>
+            <option class="text-black" value="GK">GK</option>
+          </select>
+          <label class="text-white text-lg font-semibold mb-2">Remplacer/Plan</label>
+          <select id="Position" name="teamPlan" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
+            <option class="text-black" selected disabled>Remplacer/Plan</option>
+            <option class="text-black" value="REM">Remplacer</option>
+            <option class="text-black" value="PL">Plan</option>
 
-        <div class="flex justify-center md:mb-0 md:gap-[10rem] gap-[5rem]">
-
-          <button id="cardLb" class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">LB</p>
-          </button>
-
-          <button id="cardCbl" class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CBL</p>
-          </button>
-
-          <button id="cardCbr" class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CBR</p>
-          </button>
-
-          <button id="cardRb" class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">RB</p>
-          </button>
-
+          </select>
         </div>
-
-        <div class="flex justify-center md:mt-4 mt-10">
-
-          <button id="cardGk" class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-            <p class=" bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">GK</p>
-          </button>
-
-        </div>
-      </div>
-
-      <!-- remplacement  -->
-
-      <div class="cart bg-blue-950 w-full rounded-2xl mt-4">
-        <h2 class=" text-white text-center font-bold text-4xl m-7">Remplacement</h2>
-        <div class="grid grid-cols-6 mb-4">
-          <!-- <div class="card"></div> -->
-
-          <div class=" flex flex-col items-center">
-            <div
-              class="relative flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-              <div class="scale-[2] ml-9 mt-[0.3rem]">
-                <div class="absolute ml-1 mt-2">
-                  <p class="text-[0.3rem] font-bold">90</p>
-                  <p class="text-[0.2rem] ">CF</p>
-                </div>
-                <img class="w-7 ml-2 mt-1 z-20 " src="img/player.webp" alt="">
-                <p class="absolute font-semibold text-[0.2rem] ml-[1rem]">Messi</p>
-                <div class="flex ml-[0.4rem] mt-[0.3rem] gap-[0.07rem]">
-                  <p class="text-[0.13rem]">PAC</p>
-                  <p class="text-[0.13rem]">SHO</p>
-                  <p class="text-[0.13rem]">PAS</p>
-                  <p class="text-[0.13rem]">DRI</p>
-                  <p class="text-[0.13rem]">DEF</p>
-                  <p class="text-[0.13rem]">PHY</p>
-                </div>
-                <div class="flex ml-[0.4rem] mt-[-0.05rem] gap-[0.1rem]">
-                  <p class="text-[0.17rem] font-bold">90</p>
-                  <p class="text-[0.17rem] font-bold">90</p>
-                  <p class="text-[0.17rem] font-bold">90</p>
-                  <p class="text-[0.17rem] font-bold">90</p>
-                  <p class="text-[0.17rem] font-bold">90</p>
-                  <p class="text-[0.17rem] font-bold">90</p>
-                </div>
-                <div class="flex ml-[0.9rem] mt-[0.1rem] gap-[0.4rem]">
-                  <img class="w-[0.21rem] " src="img/120.webp" alt="">
-                  <img class="h-[0.2rem] w-[0.3rem] mt-[]" src="img/ar.webp" alt="">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- All Players -->
-
-      <div class="bg-blue-950 w-full rounded-2xl mt-4">
-        <h2 class="text-white text-center font-bold text-4xl m-7">All Players</h2>
-        <div id="playersList" class="grid grid-cols-6 mb-4 ml-9 "></div>
-      </div>
-
-    </div>
-
-    <!-- form -->
-
-    <div id="creatForm" class="flex flex-col justify-center bg-blue-950 w-full rounded-2xl">
-      <h2 class="text-white text-center font-bold text-6xl m-7">Add Player</h2>
-      <div class="flex flex-col m-4">
-        <label class="text-white text-lg font-semibold mb-2">Player Name</label>
-        <input id="Name" type="text" placeholder="Player Name" id="teamPlan" name="teamPlan"
-          class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
-      </div>
-
-      <div class="flex flex-col m-4">
-        <label class="text-white text-lg font-semibold mb-2">Nationality</label>
-        <input id="Nastionality" type="text" placeholder="nationality" id="defensiveApproach" name="defensiveApproach"
-          class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
-      </div>
-
-      <div class="flex flex-col m-4">
-        <label class="text-white text-lg font-semibold mb-2">Club</label>
-        <input id="Club" type="text" placeholder="Club"
-          class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
-      </div>
-
-      <div class="flex flex-col m-4">
-        <label class="text-white text-lg font-semibold mb-2">Position</label>
-        <select id="Position" name="teamPlan" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
-          <option class="text-black" value="" selected disabled>Position</option>
-          <option class="text-black" value="ST">ST</option>
-          <option class="text-black" value="LW">LW</option>
-          <option class="text-black" value="RM">RM</option>
-          <option class="text-black" value="CM">CM</option>
-          <option class="text-black" value="CDM">CDM</option>
-          <option class="text-black" value="LB">LB</option>
-          <option class="text-black" value="CB">CB</option>
-          <option class="text-black" value="RB">RB</option>
-          <option class="text-black" value="GK">GK</option>
-        </select>
-        <div id="Players" class="grid grid-cols-2 gap-x-4">
-          <div class="flex flex-col mt-4">
+        <div id="Players" class="grid grid-cols-2 gap-x-4 mx-4">
+          <div class="flex flex-col">
             <label class="text-white text-lg font-semibold mb-2">Pace</label>
             <input id="Pace" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
-              placeholder="Pace" required>
+              placeholder="Pace">
           </div>
-          <div class="flex flex-col mt-4">
-            <label class="text-white text-lg font-semibold mb-2">Hooting</label>
-            <input id="Hoo" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
-              placeholder="Hooting" required>
+          <div class="flex flex-col">
+            <label class="text-white text-lg font-semibold mb-2">Shooting</label>
+            <input id="Sho" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+              placeholder="Shooting">
           </div>
-          <div class="flex flex-col mt-4">
+          <div class="flex flex-col">
             <label class="text-white text-lg font-semibold mb-2">Passing</label>
             <input id="Pas" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
-              placeholder="Passing" required>
+              placeholder="Passing">
           </div>
-          <div class="flex flex-col mt-4">
+          <div class="flex flex-col">
             <label class="text-white text-lg font-semibold mb-2">Dribbling</label>
             <input id="Dri" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
-              placeholder="Dribbling" required>
+              placeholder="Dribbling">
           </div>
-          <div class="flex flex-col mt-4">
+          <div class="flex flex-col">
             <label class="text-white text-lg font-semibold mb-2">Defending</label>
             <input id="Def" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
-              placeholder="Defending" required>
+              placeholder="Defending">
           </div>
-          <div class="flex flex-col mt-4">
+          <div class="flex flex-col">
             <label class="text-white text-lg font-semibold mb-2">Physical</label>
             <input id="Phy" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
-              placeholder="Physical" required>
+              placeholder="Physical">
           </div>
         </div>
       </div>
-      <div class="flex  m-4 gap-4">
-        <input id="addPlayer" type="submit" value="Add to List"
-          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">
+      <div class="flex  m-2 justify-around">
+        <button id="addPlayer" type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">add
+          player</button>
+        <button id="add-to-tshkila" type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">add to
+          plan</button>
+        <button id="close"
+          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
       </div>
     </div>
+
   </div>
+  <div class="flex">
+    <!-- Stadium Section -->
+    <div class="flex m-4 gap-4 md:flex md:flex-row md:gap-11">
+      <div class="flex flex-col">
+        <div
+          class="bg-[url(img/stadium_background.webp)] bg-no-repeat bg-cover bg-center md:h-[820px] md:w-[893px] h-[400px] rounded-2xl">
+
+          <div class="flex justify-center md:mb-1 mb-6 md:gap-32 gap-8">
+            <div id="cardLw" class="flex flex-col items-center">
+              <div
+                class="mt-5 md:mt-3 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">LW</p>
+            </div>
+
+            <div id="cardSt" class="flex flex-col items-center">
+              <div
+                class="flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">ST</p>
+            </div>
+
+            <div id="cardRw" class="flex flex-col items-center">
+              <div
+                class="mt-5 md:mt-3 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">RW</p>
+            </div>
+          </div>
+
+
+          <div class="flex justify-center md:gap-[10rem] gap-[5rem]">
+            <div id="cardCml" class="flex flex-col items-center">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CML</p>
+            </div>
+
+            <div id="cardCmr" class="flex flex-col items-center">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CMR</p>
+            </div>
+          </div>
+
+
+          <div class="flex justify-center md:mb-1 mb-6">
+            <div id="cardCdm" class="flex flex-col items-center">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CDM</p>
+            </div>
+          </div>
+
+          <div class="flex justify-center md:mb-0 md:gap-[10rem] gap-[5rem]">
+            <div id="cardLb" class="flex flex-col items-center">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">LB</p>
+            </div>
+
+            <div id="cardCbl" class="flex flex-col items-center">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CBL</p>
+            </div>
+
+            <div id="cardCbr" class="flex flex-col items-center">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CBR</p>
+            </div>
+
+            <div id="cardRb" class="flex flex-col items-center">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">RB</p>
+            </div>
+          </div>
+
+          <div class="flex justify-center md:mt-4 mt-10">
+            <div id="cardGk" class="flex flex-col items-center">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+              </div>
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">GK</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- remplacement  -->
+
+    <div class=" bg-blue-950 w-full rounded-2xl m-4">
+      <h2 class=" text-white text-center font-bold text-4xl m-7">Remplacement</h2>
+      <div id="card-replacemet" class="grid grid-cols-6 mb-4">
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- footer -->
+
+  <footer class="bg-blue-950 text-gray-400 p-6">
+    <div class=" mx-auto flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+        <a href="#" class="hover:text-white transition duration-300">Help Center</a>
+      </div>
+      <p class="text-sm">© 2024 Fut Champion. All rights reserved.</p>
+    </div>
+  </footer>
   <script src="main.js"></script>
-  <script src="allPlayers.js"></script>
 </body>
 
 </html>
-
-<!-- 
-<script>
-  let titleInput = document.getElementById("title");
-  let dateInput = document.getElementById("date");
-  let statusSelect = document.getElementById("status");
-  let prioritySelect = document.getElementById("priority");
-  let descInput = document.getElementById("description");
-  let submitInput = document.getElementById("submit");
-  let formation = document.getElementById("myForm");
-
-  let todoContainer = document.querySelector(".toDo");
-  let doingContainer = document.querySelector(".doing");
-  let doneContainer = document.querySelector(".done");
-
-  let array = [];
-  let editIndex = -1;
-
-  const openPopupButton = document.getElementById("openPopup");
-  const closePopupButton = document.getElementById("closePopup");
-  const popupForm = document.getElementById("popupForm");
-
-  openPopupButton.addEventListener("click", () => {
-    popupForm.classList.remove("hidden");
-    setTimeout(() => {
-      popupForm.classList.remove("opacity-0", "scale-90");
-      popupForm.classList.add("opacity-100", "scale-100");
-    }, 10);
-  });
-
-  closePopupButton.addEventListener("click", () => {
-    popupForm.classList.remove("opacity-100", "scale-100");
-    popupForm.classList.add("opacity-0", "scale-95");
-    setTimeout(() => popupForm.classList.add("hidden"), 700);
-  });
-
-
-
-  formation.addEventListener("submit", function (event) {
-    event.preventDefault();
-    if (titleInput.value !== "" && dateInput.value !== "" && prioritySelect.value !== "" && statusSelect.value !== "" && descInput.value !== "") {
-      if (editIndex > -1) {
-        array[editIndex] = {
-          title: titleInput.value,
-          date: dateInput.value,
-          status: statusSelect.value,
-          priority: prioritySelect.value,
-          desc: descInput.value
-        };
-        editIndex = -1;
-        submitInput.value = "Add";
-      } else {
-        add_to_array(titleInput.value, dateInput.value, statusSelect.value, prioritySelect.value, descInput.value);
-      }
-      renderList();
-      popupForm.classList.add("hidden");
-
-    } else {
-      alert("Complete the form!");
-    }
-  });
-
-  function add_to_array(title, date, status, priority, desc) {
-    let card_element = {
-      title: title,
-      date: date,
-      status: status,
-      priority: priority,
-      desc: desc,
-    };
-    array.push(card_element);
-
-    titleInput.value = "";
-    dateInput.value = "";
-    statusSelect.value = "";
-    prioritySelect.value = "";
-    descInput.value = "";
-  }
-
-  function renderList() {
-    todoContainer.innerHTML = "";
-    doingContainer.innerHTML = "";
-    doneContainer.innerHTML = "";
-
-    array.forEach((card_element, index) => {
-      let div = document.createElement("div");
-      div.classList.add('border', 'p-2', 'm-2', 'rounded');
-
-      if (card_element.priority === "op1") {
-        div.classList.add('border-l-4', 'border-red-500', 'bg-red-200');
-      } else if (card_element.priority === "op2") {
-        div.classList.add('border-l-4', 'border-yellow-500', 'bg-yellow-200');
-      } else if (card_element.priority === "op3") {
-        div.classList.add('border-l-4', 'border-green-500', 'bg-green-200');
-      }
-
-      div.innerHTML = `
-      <h3 class="text-lg font-semibold">${card_element.title}</h3>
-      <p class="text-sm text-black">Date: ${card_element.date}</p>
-      <p class="text-sm text-black">Priority: ${card_element.priority}</p>
-      <p class="text-sm text-black">Description: ${card_element.desc}</p>
-      <button class="delete-btn bg-red-500 text-white p-1 rounded mt-2 mr-2 hover:bg-red-600">Delete</button>
-      <button class="edit-btn bg-green-500 text-white p-1 rounded mt-2 mr-2 hover:bg-green-600">Edit</button>
-      `;
-
-      if (card_element.status === "toDo") {
-        todoContainer.appendChild(div);
-      } else if (card_element.status === "Doing") {
-        doingContainer.appendChild(div);
-      } else if (card_element.status === "Done") {
-        doneContainer.appendChild(div);
-      }
-      div.querySelector(".delete-btn").addEventListener("click", () => {
-        array.splice(index, 1);
-        renderList();
-      });
-
-      div.querySelector(".edit-btn").addEventListener("click", () => {
-        titleInput.value = card_element.title;
-        dateInput.value = card_element.date;
-        statusSelect.value = card_element.status;
-        prioritySelect.value = card_element.priority;
-        descInput.value = card_element.desc;
-
-        editIndex = index;
-        submitInput.value = "Save";
-        popupForm.classList.remove("hidden");
-      });
-    });
-  }
-</script> -->
-
-<!-- // array[index] = {
-  //   Name : inputName.value,
-  //   Nation : inputNation.value,
-  //   Club : inputClub.value,
-  //   Post : inputPost.value,
-  // };
-  // index = -1; -->
