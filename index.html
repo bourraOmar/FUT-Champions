@@ -46,7 +46,8 @@
         </div>
         <div class="flex flex-col mx-4">
           <label class="text-white text-lg font-semibold mb-2">Position</label>
-          <select id="Position" name="teamPlan" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
+          <select id="Position" name="teamPlan"
+            class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
             <option class="text-black" selected disabled>Position</option>
             <option class="text-black" value="ST">ST</option>
             <option class="text-black" value="LW">LW</option>
@@ -61,8 +62,8 @@
             <option class="text-black" value="GK">GK</option>
           </select>
           <label class="text-white text-lg font-semibold mb-2">Remplacer/Plan</label>
-          <select id="Position" name="teamPlan" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
-            <option class="text-black" selected disabled>Remplacer/Plan</option>
+          <select id="status" name="teamPlan" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
+            <!-- <option class="text-black" selected disabled>Remplacer/Plan</option> -->
             <option class="text-black" value="REM">Remplacer</option>
             <option class="text-black" value="PL">Plan</option>
 
@@ -102,12 +103,10 @@
         </div>
       </div>
       <div class="flex  m-2 justify-around">
-        <button id="addPlayer" type="button"
-          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">add
-          player</button>
-        <button id="add-to-tshkila" type="button"
-          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">add to
-          plan</button>
+        <input id="add-to-tshkila" type="submit"
+          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5"
+          value="add player">
+
         <button id="close"
           class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
       </div>
@@ -118,7 +117,7 @@
     <!-- Stadium Section -->
     <div class="flex m-4 gap-4 md:flex md:flex-row md:gap-11">
       <div class="flex flex-col">
-        <div
+        <div id="staduim"
           class="bg-[url(img/stadium_background.webp)] bg-no-repeat bg-cover bg-center md:h-[820px] md:w-[893px] h-[400px] rounded-2xl">
 
           <div class="flex justify-center md:mb-1 mb-6 md:gap-32 gap-8">
@@ -204,22 +203,15 @@
         </div>
       </div>
     </div>
-
     <!-- remplacement  -->
-
     <div class=" bg-blue-950 w-full rounded-2xl m-4">
       <h2 class=" text-white text-center font-bold text-4xl m-7">Remplacement</h2>
-      <div id="card-replacemet" class="grid grid-cols-6 mb-4">
+      <div id="remplacement" class="grid grid-cols-6 mb-4">
       </div>
     </div>
-
   </div>
-
-
-
-
+  </div>
   <!-- footer -->
-
   <footer class="bg-blue-950 text-gray-400 p-6">
     <div class=" mx-auto flex flex-col md:flex-row justify-between items-center">
       <div class="mb-4 md:mb-0">

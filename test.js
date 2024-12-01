@@ -1,472 +1,826 @@
-let players = [];
-console.log(players);
+// // function gkForm() {
+// //   let gkDiv = document.cardElement('div');
+// //   gkDiv.classList.add('grid', 'grid-cols-2', 'gap-x-4', 'mx-4');
+// //   gkDiv.innerHTML = `
+// //             <div class="flex flex-col">
+// //             <label class="text-white text-lg font-semibold mb-2">diving</label>
+// //             <input id="div" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+// //               placeholder="Pace">
+// //           </div>
+// //           <div class="flex flex-col">
+// //             <label class="text-white text-lg font-semibold mb-2">handling</label>
+// //             <input id="han" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+// //               placeholder="Shooting">
+// //           </div>
+// //           <div class="flex flex-col">
+// //             <label class="text-white text-lg font-semibold mb-2">kicking</label>
+// //             <input id="kic" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+// //               placeholder="Passing">
+// //           </div>
+// //           <div class="flex flex-col">
+// //             <label class="text-white text-lg font-semibold mb-2">reflexes</label>
+// //             <input id="ref" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+// //               placeholder="Dribbling">
+// //           </div>
+// //           <div class="flex flex-col">
+// //             <label class="text-white text-lg font-semibold mb-2">speed</label>
+// //             <input id="spe" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+// //               placeholder="Defending">
+// //           </div>
+// //           <div class="flex flex-col">
+// //             <label class="text-white text-lg font-semibold mb-2">positioning</label>
+// //             <input id="pos" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white" type="number"
+// //               placeholder="Physical">
+// //           </div>`;
 
-const menuToggle = document.getElementById('menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-menuToggle.addEventListener('click', _ => {
-    mobileMenu.classList.toggle('hidden');
-});
-function showHideList() {
-    let form = document.getElementById("add-player");
-    form.classList.toggle("hidden");
-  }
-  function showHideListGk() {
-    let form = document.getElementById("add-Gk");
-    form.classList.toggle("hidden");
-  }
+
+
+// // Render player details in the list
+// // function renderList(Name, Post, pace, sho, pas, dri, def, phy) {
+
+// //   let div = document.createElement("div");
+// //   div.innerHTML = `
+// //     <div class="relative flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+// //       <div class="scale-[2] ml-9 mt-[0.3rem]">
+// //         <div class="absolute ml-1 mt-2">
+// //           <p class="text-[0.3rem] font-bold">90</p>
+// //           <p class="text-[0.2rem] ">${Post}</p>
+// //         </div>
+// //         <img class="w-7 ml-2 mt-1 z-20" src="img/player.webp" alt="">
+// //         <p class="absolute font-semibold text-[0.2rem] ml-[1rem]">${Name}</p>
+// //         <div class="flex ml-[0.4rem] mt-[0.3rem] gap-[0.07rem]">
+// //           <p class="text-[0.13rem]">PAC</p>
+// //           <p class="text-[0.13rem]">SHO</p>
+// //           <p class="text-[0.13rem]">PAS</p>
+// //           <p class="text-[0.13rem]">DRI</p>
+// //           <p class="text-[0.13rem]">DEF</p>
+// //           <p class="text-[0.13rem]">PHY</p>
+// //         </div>
+// //         <div class="flex ml-[0.4rem] mt-[-0.05rem] gap-[0.1rem]">
+// //           <p class="text-[0.17rem] font-bold">${pace}</p>
+// //           <p class="text-[0.17rem] font-bold">${sho}</p>
+// //           <p class="text-[0.17rem] font-bold">${pas}</p>
+// //           <p class="text-[0.17rem] font-bold">${dri}</p>
+// //           <p class="text-[0.17rem] font-bold">${def}</p>
+// //           <p class="text-[0.17rem] font-bold">${phy}</p>
+// //         </div>
+// //         <div class="flex ml-[0.9rem] mt-[0.1rem] gap-[0.4rem]">
+// //           <img class="w-[0.21rem]" src="img/120.webp" alt="">
+// //           <img class="h-[0.2rem] w-[0.3rem] mt-[]" src="img/ar.webp" alt="">
+// //         </div>
+// //       </div>
+// //     </div>
+// //   `;
+// //   createCard.appendChild(div);
+// // }
 
 
 
-let playerName = document.getElementById("player-name");
-let gkName = document.getElementById("gk-name");
-let playerPosition = document.getElementById("player-position");
-let playerGkPosition = document.getElementById("player-position-gk");
-let paceStatu = document.getElementById("pace-status");
-let shootingStatu = document.getElementById("shooting-status");
-let passingStatu = document.getElementById("passing-status");
-let dribblinStatu = document.getElementById("dribbling-status");
-let defendingStatu = document.getElementById("defending-status");
-let physicalStatu = document.getElementById("physical-status");
-let divingStatu = document.getElementById("diving-status");
-let handlingStatu = document.getElementById("handling-status");
-let kickingStatu = document.getElementById("kicking-status");
-let reflexesStatu = document.getElementById("reflexes-status");
-let speedStatu = document.getElementById("speed-status");
-let positioningStatu = document.getElementById("positioning-status");
-const btnAddTeamPlayer = document.getElementById("add-team-player");
-const btnAddGkPlayer = document.getElementById("add-team-gk");
-let addStatiqueChoise = document.getElementById("statique-add");
-const inputverifi = document.querySelectorAll('input[type="number"]');
-const lw = document.getElementById("lw");
-const st = document.getElementById("st");
-const rw = document.getElementById("rw");
-const lCm = document.getElementById("l-cm");
-const cAm = document.getElementById("cam");
-const rCm = document.getElementById("r-cm");
-const lb = document.getElementById("lb");
-const lCb = document.getElementById("l-cb");
-const rCb = document.getElementById("r-cb");
-const rb = document.getElementById("rb");
-const gk = document.getElementById("gk");
+
+
+
+
+
+// // let titleInput = document.getElementById("title");
+// // let dateInput = document.getElementById("date");
+// // let statusSelect = document.getElementById("status");
+// // let prioritySelect = document.getElementById("priority");
+// // let descInput = document.getElementById("description");
+// // let submitInput = document.getElementById("submit");
+// // let formation = document.getElementById("myForm");
+
+// // let todoContainer = document.querySelector(".toDo");
+// // let doingContainer = document.querySelector(".doing");
+// // let doneContainer = document.querySelector(".done");
+
+// // let array = [];
+// // let editIndex = -1;
+
+// // const openPopupButton = document.getElementById("openPopup");
+// // const closePopupButton = document.getElementById("closePopup");
+// // const popupForm = document.getElementById("popupForm");
+
+// // openPopupButton.addEventListener("click", () => {
+// //   popupForm.classList.remove("hidden");
+// //   setTimeout(() => {
+// //       popupForm.classList.remove("opacity-0", "scale-90");
+// //       popupForm.classList.add("opacity-100", "scale-100");
+// //   }, 10); 
+// // });
+
+// // closePopupButton.addEventListener("click", () => {
+// //   popupForm.classList.remove("opacity-100", "scale-100");
+// //   popupForm.classList.add("opacity-0", "scale-95");
+// //   setTimeout(() => popupForm.classList.add("hidden"), 700);
+// // });
+
+
+
+// // formation.addEventListener("submit", function (event) {
+// //     event.preventDefault();
+// //     if (titleInput.value !== "" && dateInput.value !== "" && prioritySelect.value !== "" && statusSelect.value !== "" && descInput.value !== "") {
+// //         if (editIndex > -1) {
+// //             array[editIndex] = {
+// //                 title: titleInput.value,
+// //                 date: dateInput.value,
+// //                 status: statusSelect.value,
+// //                 priority: prioritySelect.value,
+// //                 desc: descInput.value
+// //             };
+// //             editIndex = -1;
+// //             submitInput.value = "Add";
+// //         } else {
+// //             add_to_array(titleInput.value, dateInput.value, statusSelect.value, prioritySelect.value, descInput.value);
+// //         }
+// //         renderList();
+// //         popupForm.classList.add("hidden");
+
+// //     } else {
+// //         alert("Complete the form!");
+// //     }
+// // });
+
+// // function add_to_array(title, date, status, priority, desc) {
+// //     let card_element = {
+// //         title: title,
+// //         date: date,
+// //         status: status,
+// //         priority: priority,
+// //         desc: desc,
+// //     };
+// //     array.push(card_element);
+
+// //     titleInput.value = "";
+// //     dateInput.value = "";
+// //     statusSelect.value = "";
+// //     prioritySelect.value = "";
+// //     descInput.value = "";
+// // }
+
+// // function renderList() {
+// //     todoContainer.innerHTML = "";
+// //     doingContainer.innerHTML = "";
+// //     doneContainer.innerHTML = "";
+
+// //     array.forEach((card_element, index) => {
+// //         let div = document.createElement("div");
+// //         div.classList.add('border', 'p-2', 'm-2', 'rounded');
+
+// //         if (card_element.priority === "op1") {
+// //             div.classList.add('border-l-4', 'border-red-500', 'bg-red-200');
+// //         } else if (card_element.priority === "op2") {
+// //             div.classList.add('border-l-4', 'border-yellow-500', 'bg-yellow-200');
+// //         } else if (card_element.priority === "op3") {
+// //             div.classList.add('border-l-4', 'border-green-500', 'bg-green-200');
+// //         }
+
+// //         div.innerHTML = `
+// //         <h3 class="text-lg font-semibold">${card_element.title}</h3>
+// //         <p class="text-sm text-black">Date: ${card_element.date}</p>
+// //         <p class="text-sm text-black">Priority: ${card_element.priority}</p>
+// //         <p class="text-sm text-black">Description: ${card_element.desc}</p>
+// //         <button class="delete-btn bg-red-500 text-white p-1 rounded mt-2 mr-2 hover:bg-red-600">Delete</button>
+// //         <button class="edit-btn bg-green-500 text-white p-1 rounded mt-2 mr-2 hover:bg-green-600">Edit</button>
+// //         `;
+
+// //         if (card_element.status === "toDo") {
+// //             todoContainer.appendChild(div);
+// //         } else if (card_element.status === "Doing") {
+// //             doingContainer.appendChild(div);
+// //         } else if (card_element.status === "Done") {
+// //             doneContainer.appendChild(div);
+// //         }
+// //         div.querySelector(".delete-btn").addEventListener("click", () => {
+// //             array.splice(index, 1);
+// //             renderList();
+// //         });
+
+// //         div.querySelector(".edit-btn").addEventListener("click", () => {
+// //             titleInput.value = card_element.title;
+// //             dateInput.value = card_element.date;
+// //             statusSelect.value = card_element.status;
+// //             prioritySelect.value = card_element.priority;
+// //             descInput.value = card_element.desc;
+
+// //             editIndex = index;
+// //             submitInput.value = "Save";
+// //             popupForm.classList.remove("hidden");
+// //         });
+// //     });
+// // }
+
+
+
+
+
+// let pName = document.getElementById("pName");
+// let pPosition = document.getElementById("pPosition");
+// let pNationality = document.getElementById("pNationality");
+
+// let pClub = document.getElementById("pClub");
+
+
+// let pPace = document.getElementById("pPace");
+// let pShooting = document.getElementById("pShooting");
+// let pPassing = document.getElementById("pPassing");
+// let pDribbling = document.getElementById("pDribbling");
+// let pDefending = document.getElementById("pDefending");
+// let pPhysical = document.getElementById("pPhysical");
+
+// let editName = document.getElementById("editName");
+
+// let editPosition = document.getElementById("editPosition");
+// let editNationality = document.getElementById("editNationality");
+
+// let editClub = document.getElementById("editClub");
+
+
+// let editPace = document.getElementById("editPace");
+// let editShooting = document.getElementById("editShooting");
+// let editPassing = document.getElementById("editPassing");
+// let editDribbling = document.getElementById("editDribbling");
+// let editDefending = document.getElementById("editDefending");
+// let editPhysical = document.getElementById("editPhysical");
+
+// let add = document.getElementById("add");
+// let addPlayer = document.getElementById("addPlayer");
+// let addModal = document.getElementById("addModal");
+// let editModal = document.getElementById("editModal");
+
+
+// //Array of players 
+// let players = [];
+
+
+// function closeAddModal() {
+//     addModal.classList.add("hidden");
+// }
+// function closeEditModal() {
+//     editModal.classList.add("hidden");
+// }
+// function add_Player(name,  pos, nat, flag, club, pace, shoot, pass, dribl, def, phys, status) {
+//     const player = {
+//         id: Date.now(),
+//         name: name,
+//         photo: photo,
+//         pos: pos,
+//         nat: nat,
+//         flag: flag,
+//         club: club,
+//         logo: logo,
+//         rat: rat,
+//         pace: pace,
+//         shoot: shoot,
+//         pass: pass,
+//         dribl: dribl,
+//         def: def,
+//         phys: phys,
+//         status: status,
+//     };
+//     players.push(player);
+//     updateScreen();
+//     storeData(players);
+// }
+
+// function updateFields() {
+//     if (pPosition.value === "GK") {
+//         let labelPace = document.getElementById("labelPace");
+//         let labelShooting = document.getElementById("labelShooting");
+//         let labelPassing = document.getElementById("labelPassing");
+//         let labelDribbling = document.getElementById("labelDribbling");
+//         let labelDefending = document.getElementById("labelDefending");
+//         let labelPhysical = document.getElementById("labelPhysical");
+
+//         labelPace.innerText = "Diving";
+//         labelShooting.innerText = "Handling";
+//         labelPassing.innerText = "Kicking";
+//         labelDribbling.innerText = "Reflexes";
+//         labelDefending.innerText = "Speed";
+//         labelPhysical.innerText = "Positioning";
+
+//         pPace.id = "pDiving";
+//         pShooting.id = "pHandling";
+//         pPassing.id = "pKicking";
+//         pDribbling.id = "pReflexes";
+//         pDefending.id = "pSpeed";
+//         pPhysical.id = "pPositioning";
+//     } else {
+//         labelPace.innerText = "Pace";
+//         labelShooting.innerText = "Shooting";
+//         labelPassing.innerText = "Passing";
+//         labelDribbling.innerText = "Dribbling";
+//         labelDefending.innerText = "Defending";
+//         labelPhysical.innerText = "Physical";
+
+//         pPace.id = "pPace";
+//         pShooting.id = "pShooting";
+//         pPassing.id = "pPassing";
+//         pDribbling.id = "pDribbling";
+//         pDefending.id = "pDefending";
+//         pPhysical.id = "pPhysical";
+//     }
+// }
+
+// pPosition.addEventListener('change', updateFields);
+
+// updateFields();
+
+
+// add.onclick = function () {
+//     //validation 
+//     const nameRegex = /^[A-Za-z\s]+$/;
+//     const urlRegex = /^(https?):\/\/[^\s/$.?#].[^\s]*$/i;
+//     if(pName.value.trim() === "" || pPhoto.value.trim() === "" || pPosition.value.trim() === "" || pNationality.value.trim() === "" || pFlag.value.trim() === "" || pClub.value.trim() === "" || pLogo.value.trim() === "" || pRating.value.trim() === "" || pPace.value.trim() === "" || pShooting.value.trim() === "" || pPassing.value.trim() === "" || pDribbling.value.trim() === "" || pDefending.value.trim() === "" || pPhysical.value.trim() === "" || pStatus.value.trim() === "" ){
+//         window.alert("some fields are empty !");
+//     }else if(!nameRegex.test(pName.value.trim())){
+//         window.alert("Player name contain only letters and spaces.");
+//     }else if(!nameRegex.test(pNationality.value.trim())){
+//         window.alert("Player nationality contain only letters and spaces.");
+//     }else if(!nameRegex.test(pClub.value.trim())){
+//         window.alert("Player club contain only letters and spaces.");
+//     }else if(pPosition.value !=="LB" && pPosition.value !=="CBL" && pPosition.value !=="CBR" && pPosition.value !=="RB" && pPosition.value !=="LM" && pPosition.value !=="CML" && pPosition.value !=="CMR" && pPosition.value !=="RM" && pPosition.value !=="STL" && pPosition.value !=="STR" && pPosition.value !=="GK"){
+//         window.alert("Invalid Position !");
+//     }else if (!urlRegex.test(pPhoto.value)) {
+//         window.alert("The URL of the photo is invalid!");
+//     }else if (!urlRegex.test(pFlag.value)) {
+//         window.alert("The URL of the flag is invalid!");
+//     }else if (!urlRegex.test(pLogo.value)) {
+//         window.alert("The URL of the logo is invalid!");
+//     }else if(pRating.value < 0 || pRating.value > 100 || pPace.value < 0 || pPace.value > 100 || 
+//         pShooting.value < 0 || pShooting.value > 100 || pPassing.value < 0 || pPassing.value > 100 || 
+//         pDribbling.value < 0 || pDribbling.value > 100 || pDefending.value < 0 || pDefending.value > 100 || 
+//         pPhysical.value < 0 || pPhysical.value > 100 ){
+//             window.alert("one or more statistics are wrong !");
+//     }else if(pStatus.value !== "Principal" && pStatus.value !== "Echange"){
+//         window.alert("Invalide Status !");
+//     }
+//     else{
+//     add_Player(pName.value, pPhoto.value, pPosition.value, pNationality.value,
+//         pFlag.value, pClub.value, pLogo.value, pRating.value, pPace.value,
+//         pShooting.value, pPassing.value, pDribbling.value, pDefending.value, pPhysical.value, pStatus.value);
+//     clearFields();
+//     closeAddModal();
+//     }
+// }
+
+// function clearFields() {
+//     pName.value = ""; 
+//     pPhoto.value = ""; 
+//     pPosition.value = "";
+//     pNationality.value = "";
+//     pFlag.value = "";
+//     pClub.value = "";
+//     pLogo.value = "";
+//     pRating.value = "";
+//     pPace.value = "";
+//     pShooting.value = "";
+//     pPassing.value = "";
+//     pDribbling.value = "";
+//     pDefending.value = "";
+//     pPhysical.value = "";
+//     pStatus.value = "";
+// }
+
+// function updateScreen() {
+//     const LB = document.getElementById("LB");
+//     const CBL = document.getElementById("CBL");
+//     const CBR = document.getElementById("CBR");
+//     const RB = document.getElementById("RB");
+//     const LM = document.getElementById("LM");
+//     const CML = document.getElementById("CML");
+//     const CMR = document.getElementById("CMR");
+//     const RM = document.getElementById("RM");
+//     const STL = document.getElementById("STL");
+//     const STR = document.getElementById("STR");
+//     const GK = document.getElementById("GK");
+//     const echange = document.getElementById("echange");
+
+//     LB.innerHTML = "";
+//     CBL.innerHTML = "";
+//     CBR.innerHTML = "";
+//     RB.innerHTML = "";
+//     LM.innerHTML = "";
+//     CML.innerHTML = "";
+//     CMR.innerHTML = "";
+//     RM.innerHTML = "";
+//     STL.innerHTML = "";
+//     STR.innerHTML = "";
+//     GK.innerHTML = "";
+//     echange.innerHTML = "";
+
+//     players.forEach(player => {
+//         const playerElement = document.createElement("div");
+//         if(player.pos === "GK"){
+//             playerElement.innerHTML = `
+//                         <div class="flex items-start justify-center mt-1 text-white">
+//                             <div class="flex flex-col mt-1 lg:mt-4">
+//                                 <span class="text-[8px] md:text-lg font-bold">${player.rat}</span>
+//                                 <span class="text-[8px] md:text-lg">${player.pos}</span>
+//                             </div>
+//                             <img src="${player.photo}" class=" w-[30px] md:w-[70px] lg:w-[100px] h-auto">
+//                         </div>
+//                         <h4 class="text-white text-[6px] md:text-[12px] lg:text-[16px] text-center">${player.name}</h4>
+//                         <div class="stats flex justify-center lg:gap-1 text-[4px] md:text-[9px] lg:text-[12px] font-bold px-1 lg:px-2">
+//                             <div>
+//                                 <span>DIV</span>
+//                                 <p>${player.pace}</p>
+//                             </div>
+//                             <div>
+//                                 <span>HAN</span>
+//                                 <p>${player.shoot}</p>
+//                             </div>
+//                             <div>
+//                                 <span>KIC</span>
+//                                 <p>${player.pass}</p>
+//                             </div>
+//                             <div>
+//                                 <span>REF</span>
+//                                 <p>${player.dribl}</p>
+//                             </div>
+//                             <div>
+//                                 <span>SPD</span>
+//                                 <p>${player.def}</p>
+//                             </div>
+//                             <div>
+//                                 <span>POS</span>
+//                                 <p>${player.phys}</p>
+//                             </div>
+//                         </div>
+
+//                         <div class="icons flex justify-evenly">
+//                             <img src="${player.flag}" class="w-3 h-3 md:w-6 md:h-6 lg:w-8 lg:h-8" alt="flag">
+//                             <img src="${player.logo}" class="w-3 h-3 md:w-6 md:h-6 lg:w-8 lg:h-8" alt="logo">
+//                         </div>
+//                         <div class="flex justify-evenly mt-2">
+//                             <button class="edit bg-yellow-400 text-white px-2 py-1 text-xs" onclick="editPlayer(${player.id})">Edit</button>
+//                             <button class="delete bg-red-400 text-white px-2 py-1 text-xs" onclick="deletePlayer(${player.id})">Delete</button>
+//                         </div>
+
+//         `;
+//         }else{
+//         playerElement.innerHTML = `
+//                         <div class="flex items-start justify-center mt-1 text-white">
+//                             <div class="flex flex-col mt-1 lg:mt-4">
+//                                 <span class="text-[8px] md:text-lg font-bold">${player.rat}</span>
+//                                 <span class="text-[8px] md:text-lg">${player.pos}</span>
+//                             </div>
+//                             <img src="${player.photo}" class=" w-[30px] md:w-[70px] lg:w-[100px] h-auto">
+//                         </div>
+//                         <h4 class="text-white text-[6px] md:text-[12px] lg:text-[16px] text-center">${player.name}</h4>
+//                         <div class="stats flex justify-center lg:gap-1 text-[4px] md:text-[9px] lg:text-[12px] font-bold px-1 lg:px-2">
+//                             <div>
+//                                 <span>PAC</span>
+//                                 <p>${player.pace}</p>
+//                             </div>
+//                             <div>
+//                                 <span>SHO</span>
+//                                 <p>${player.shoot}</p>
+//                             </div>
+//                             <div>
+//                                 <span>PAS</span>
+//                                 <p>${player.pass}</p>
+//                             </div>
+//                             <div>
+//                                 <span>DRI</span>
+//                                 <p>${player.dribl}</p>
+//                             </div>
+//                             <div>
+//                                 <span>DEF</span>
+//                                 <p>${player.def}</p>
+//                             </div>
+//                             <div>
+//                                 <span>PHY</span>
+//                                 <p>${player.phys}</p>
+//                             </div>
+//                         </div>
+
+//                         <div class="icons flex justify-evenly">
+//                             <img src="${player.flag}" class="w-3 h-3 md:w-6 md:h-6 lg:w-8 lg:h-8" alt="flag">
+//                             <img src="${player.logo}" class="w-3 h-3 md:w-6 md:h-6 lg:w-8 lg:h-8" alt="logo">
+//                         </div>
+//                         <div class="flex justify-evenly mt-2">
+//                             <button class="edit bg-yellow-400 text-white px-2 py-1 text-xs" onclick="editPlayer(${player.id})">Edit</button>
+//                             <button class="delete bg-red-400 text-white px-2 py-1 text-xs" onclick="deletePlayer(${player.id})">Delete</button>
+//                         </div>
+
+//         `;
+//         }
+//         if (player.status == "Principal") {
+//             switch (player.pos) {
+//                 case "LB":
+//                     LB.appendChild(playerElement);
+//                     break;
+//                 case "CBL":
+//                     CBL.appendChild(playerElement);
+//                     break;
+//                 case "CBR":
+//                     CBR.appendChild(playerElement);
+//                     break;
+//                 case "RB":
+//                     RB.appendChild(playerElement);
+//                     break;
+//                 case "LM":
+//                     LM.appendChild(playerElement);
+//                     break;
+//                 case "CML":
+//                     CML.appendChild(playerElement);
+//                     break;
+//                 case "CMR":
+//                     CMR.appendChild(playerElement);
+//                     break;
+//                 case "RM":
+//                     RM.appendChild(playerElement);
+//                     break;
+//                 case "STL":
+//                     STL.appendChild(playerElement);
+//                     break;
+//                 case "STR":
+//                     STR.appendChild(playerElement);
+//                     break;
+//                 case "GK":
+//                     GK.appendChild(playerElement);
+//                     break;
+//                 default:
+//                     window.alert("Invalide Position !");
+//                     break;
+//             }
+//         } else if (player.status == "Echange") {
+//             let len = echange.childNodes.length;
+//             if (len >= 6) {
+//                 window.alert("You can't add more than 6 players in reserve zone ")
+//             } else {
+//                 const li = document.createElement("li");
+//                 playerElement.classList.add("h-[70px]", "w-[50px]", "md:w-[120px]", "md:h-[160px]", "lg:h-[222px]", "lg:w-[170px]", "bg-[url('img/badge_gold.png')]", "bg-contain", "bg-center", "bg-no-repeat", "flex", "flex-col");
+//                 li.appendChild(playerElement);
+//                 echange.appendChild(li);
+//             }
+//         } else {
+//             window.alert("invalide status ");
+//         }
+//     });
+// }
+
+// let save = document.getElementById("save");
+// function editPlayer(id) {
+//     const index = players.findIndex(p => p.id === id);
+//     if (index > -1) {
+//         editName.value = players[index].name;
+//         editPhoto.value = players[index].photo;
+//         editPosition.value = players[index].pos;
+//         editNationality.value = players[index].nat;
+//         editFlag.value = players[index].flag;
+//         editClub.value = players[index].club;
+//         editLogo.value = players[index].logo;
+//         editRating.value = players[index].rat;
+//         editPace.value = players[index].pace;
+//         editShooting.value = players[index].shoot;
+//         editPassing.value = players[index].pass;
+//         editDribbling.value = players[index].dribl;
+//         editDefending.value = players[index].def;
+//         editPhysical.value = players[index].phys;
+//         editStatus.value = players[index].status;
+
+//         editModal.classList.remove("hidden");
+
+//         save.onclick = function () {
+//             players[index].name = editName.value;
+//             players[index].photo = editPhoto.value;
+//             players[index].pos = editPosition.value;
+//             players[index].nat = editNationality.value;
+//             players[index].flag = editFlag.value;
+//             players[index].club = editClub.value;
+//             players[index].logo = editLogo.value;
+//             players[index].rat = editRating.value;
+//             players[index].pace = editPace.value;
+//             players[index].shoot = editShooting.value;
+//             players[index].pass = editPassing.value;
+//             players[index].dribl = editDribbling.value;
+//             players[index].def = editDefending.value;
+//             players[index].phys = editPhysical.value;
+//             players[index].status = editStatus.value;
+
+//             storeData(players);
+//             updateScreen();
+//             closeEditModal();
+//         };
+
+//     }
+// }
+
+// function deletePlayer(id) {
+//     players = players.filter(player => player.id !== id);
+//     storeData(players);
+//     updateScreen();
+// }
+
+// function storeData(array) {
+//     window.localStorage.setItem("players", JSON.stringify(array));
+// }
+
+// function fetchData() {
+//     let data = window.localStorage.getItem("players");
+//     if (data) {
+//         players = JSON.parse(data);
+//         updateScreen();
+//     }
+// }
+
+
+
+
+let st = document.getElementById('cardSt'); 
+let lw = document.getElementById('cardLw');
+let rw = document.getElementById('cardRw'); 
+let lCm = document.getElementById('cardCml'); 
+let rCm = document.getElementById('cardCmr'); 
+let cDm = document.getElementById('cardCdm'); 
+let lb = document.getElementById('cardLb'); 
+let lCb = document.getElementById('cardCbl'); 
+let rCb = document.getElementById('cardCbr'); 
+let rb = document.getElementById('cardRb');
+let gk = document.getElementById('cardGk'); 
+
+
+const ajoutForm = document.getElementById('ajoutForm');
+const createForm = document.getElementById('createForm');
+
+let inputName = document.getElementById('Name');
+let inputNastion = document.getElementById('Nastionality');
+let inputClub = document.getElementById('Club');
+let inputPost = document.getElementById('Position');
+let inputStatus = document.getElementById('Status')
+let paceInput = document.getElementById('Pace');
+let shoInput = document.getElementById('Sho');
+let pasInput = document.getElementById('Pas');
+let driInput = document.getElementById('Dri');
+let defInput = document.getElementById('Def');
+let phyInput = document.getElementById('Phy');
+
+
+let addToTshkila = document.getElementById('add-to-tshkila');
 let PlayerPlanCount = 0;
 let gkPlanCount = 0;
-let replacements = [];
 let occupiedPositions = {};
 
+let staduim = document.getElementById('staduim');
+let replacemet = document.getElementById('replacemet');
 
-  for (let i = 0; i < inputverifi.length; i++) {
-  inputverifi[i].addEventListener("input", function () {
-    if (this.value.length > 2) {
-      this.value = this.value.slice(0, 2); 
+
+let array = [];
+console.log(array);
+
+let index = -1;
+
+const openPopup = document.getElementById('open');
+const closePopup = document.getElementById('close');
+const formPopup = document.getElementById('form');
+let addPlayer = document.getElementById('addPlayer');
+
+
+openPopup.addEventListener("click", () => {
+  formPopup.classList.remove('hidden');
+});
+closePopup.addEventListener("click", () => {
+  formPopup.classList.add('hidden');
+});
+
+
+addToTshkila.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (inputName.value !== "" && inputNastion.value !== "" && inputClub.value !== "" && inputPost.value !== "" && inputStatus.value !== "" && paceInput.value !== "" && shoInput.value !== "" && pasInput.value !== "" && driInput.value !== "" && defInput.value !== "" && phyInput.value !== "") {
+    if (index > -1) {
+      array[index] = {
+        Name: inputName.value,
+        Post: inputPost.value,
+        pace: paceInput.value,
+        status: inputStatus.value,
+        sho: shoInput.value,
+        pas: pasInput.value,
+        dri: driInput.value,
+        def: defInput.value,
+        phy: phyInput.value,
+      };
+      index = -1;
+      addToTshkila.value = "Add New Player";
+    }else{
+      ajoutePlayer(inputName.value, inputPost.value, inputStatus.value, paceInput.value, shoInput.value, pasInput.value, driInput.value, defInput.value, phyInput.value);
     }
-  });
-}
-
-
-btnAddTeamPlayer.addEventListener("click", function () {
-
-  if (playerName.value.trim() !== "" && playerPosition.value !== "" && paceStatu.value.trim() !== "" && shootingStatu.value.trim() !== "" && passingStatu.value.trim() !== "" && dribblinStatu.value.trim() !== "" && defendingStatu.value.trim() !== "" && physicalStatu.value.trim() !== "") {
+    formPopup.classList.add("hidden");
     
-    if (occupiedPositions[playerPosition.value]) {
-      alert("This position is already occupied! Please choose another position.");
-    } else {
-
-      if (PlayerPlanCount < 10) {
-        addToArray(playerName.value, playerPosition.value, paceStatu.value, shootingStatu.value, passingStatu.value, dribblinStatu.value, defendingStatu.value, physicalStatu.value);
-        addToPlan(playerName.value, playerPosition.value, paceStatu.value, shootingStatu.value, passingStatu.value, dribblinStatu.value, defendingStatu.value, physicalStatu.value);
-        PlayerPlanCount++;
-
-        occupiedPositions[playerPosition.value] = playerName.value;
-
-        // playerName.value = "";
-        // playerPosition.value = "";
-        // paceStatu.value = "";
-        // shootingStatu.value = "";
-        // passingStatu.value = "";
-        // dribblinStatu.value = "";
-        // defendingStatu.value = "";
-        // physicalStatu.value = "";
-      } else {
-        replacements.push({
-          "name": playerName.value,
-          "position": playerPosition.value,
-          "rating": Math.floor((Number(paceStatu.value) + Number(shootingStatu.value) + Number(passingStatu.value) + Number(dribblinStatu.value) + Number(defendingStatu.value) + Number(physicalStatu.value)) / 6),
-          "pace": paceStatu.value,
-          "shooting": shootingStatu.value,
-          "passing": passingStatu.value,
-          "dribbling": dribblinStatu.value,
-          "defending": defendingStatu.value,
-          "physical": physicalStatu.value
-        });
-
-        updateReplacement(playerName.value, playerPosition.value, paceStatu.value, shootingStatu.value, passingStatu.value, dribblinStatu.value, defendingStatu.value, physicalStatu.value);
-      }
-    }
   } else {
-    alert("Please enter the correct info!");
+    alert('Please complete the form!');
   }
 });
 
 
+function addToList(Name, Post, pace, status, sho, pas, dri, def, phy) {
+  let cardElement = {
+    Name: Name,
+    Post: Post,
+    pace: pace,
+    status : status,
+    sho: sho,
+    pas: pas,
+    dri: dri,
+    def: def,
+    phy: phy,
+  };
+  array.push(cardElement);
 
-btnAddGkPlayer.addEventListener("click", function () {
-  if (gkName.value.trim() !== "" && playerGkPosition.value !== "" && divingStatu.value.trim() !== "" && handlingStatu.value.trim() !== "" && kickingStatu.value.trim() !== "" && reflexesStatu.value.trim() !== "" && speedStatu.value.trim() !== "" && positioningStatu.value.trim() !== "") {
-    if (gkPlanCount <= 1) {
-      addToArrayA(gkName.value, playerGkPosition.value, divingStatu.value, handlingStatu.value, kickingStatu.value, reflexesStatu.value, speedStatu.value, positioningStatu.value);
-      console.log(players);
-      addGkToPlan(gkName.value, playerGkPosition.value, divingStatu.value, handlingStatu.value, kickingStatu.value, reflexesStatu.value, speedStatu.value, positioningStatu.value);
-      // playerName.value = "";
-      // playerPosition.value = "";
-      // paceStatu.value = "";
-      // shootingStatu.value = "";
-      // passingStatu.value = "";
-      // dribblinStatu.value = "";
-      // defendingStatu.value = "";
-      // physicalStatu.value = "";
-    } else {
-        replacements.push({
-          "name": playerName.value,
-          "position": playerGkPosition.value,
-          "rating": Math.floor((Number(divingStatu.value) + Number(handlingStatu.value) + Number(kickingStatu.value) + Number(reflexesStatu.value) + Number(speedStatu.value) + Number(positioningStatu.value)) / 6),
-          "diving": divingStatu.value,
-          "handling": handlingStatu.value,
-          "kicking": kickingStatu.value,
-          "reflexes": reflexesStatu.value,
-          "speed": speedStatu.value,
-          "positioning": positioningStatu.value
-        });
-
-    updateReplacementGK(playerName.value, playerGkPosition.value, divingStatu.value, handlingStatu.value, kickingStatu.value, reflexesStatu.value, speedStatu.value, positioningStatu.value);
-    }
-
-  }else {
-    alert("please entre the corect info !");
+  if (index === -1) {  
+    inputName.value = "";
+    inputNastion.value = "";
+    inputClub.value = "";
+    inputPost.value = "";
+    inputStatus.value = "";
+    paceInput.value = "";
+    shoInput.value = "";
+    pasInput.value = "";
+    driInput.value = "";
+    defInput.value = "";
+    phyInput.value = "";
   }
-});
-
-
-function addToArray(name, position, pace, shooting, passing, dribbling, defending, physical){
-  let playerAdded = {
-    "name" : name,
-    "position" : position,
-    "rating" : Math.floor((Number(pace) + Number(shooting) + Number(passing) + Number(dribbling) + Number(defending) + Number(physical)) / 6),
-    "pace" : pace,
-    "shooting" : shooting,
-    "passing" : passing,
-    "dribbling" : dribbling,
-    "defending" : defending,
-    "physical" : physical
-  }
-  players.push(playerAdded);
 }
 
-function addToArrayA(name, position, diving, handling, kicking, reflexes, speed, positioning){
-  let gkAdded = {
-    "name" : name,
-    "position" : position,
-    "rating" : Math.floor((Number(diving) + Number(handling) + Number(kicking) + Number(reflexes) + Number(speed) + Number(positioning)) / 6),
-    "diving" : diving,
-    "handling" : handling,
-    "kicking" : kicking,
-    "reflexes" : reflexes,
-    "speed" : speed,
-    "positioning" : positioning
-  }
-  players.push(gkAdded);
-}
 
-function addToPlan(name, position, pace, shooting, passing, dribbling, defending, physical) {
-  let divPlayerCard = document.createElement("div");
-  divPlayerCard.innerHTML =`
-<button type="button" class="flex flex-col items-center">
-    <div class="bg-[url('/img/99_total_rush.webp')] bg-cover bg-no-repeat w-[8rem] h-[12rem] flex flex-col">
-        <div class="flex justify-center items-center mr-[-1.3rem] mt-[1.950rem]">
-            <span class="flex flex-col mt-[-2.5rem] mr-[-1rem]">
-                <p class="text-[0.625rem] font-bold text-white">${Math.floor((Number(pace) + Number(shooting) + Number(passing) + Number(dribbling) + Number(defending) + Number(physical)) / 6)}</p>
-                <p class="text-[0.625rem] text-white">${position}</p>
-            </span>
-            <div class="bg-[url('/img/messi.png')] bg-cover bg-no-repeat w-[7rem] h-[5.75rem]">
+function ajoutePlayer(Name, Post, pace, status, sho, pas, dri, def, phy) {
+  staduim.innerHTML = "";
+  replacemet.innerHTML = "";
+
+  array.forEach((cardElement, Id) => {
+      let div = document.createElement("div");
+      div.innerHTML = `
+     <div class="relative flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+          <div class="scale-[2] ml-9 mt-[0.3rem]">
+            <div class="absolute ml-1 mt-1">
+              <p class="text-[0.3rem] font-bold">${Math.floor((Number(pace) + Number(sho) + Number(pas) + Number(dri) + Number(def) + Number(phy))/6)}</p>
+              <p class="text-[0.2rem] ">${Post}</p>
             </div>
+            <img class="w-7 ml-2 mt-1 z-20" src="img/player.webp" alt="">
+            <p class="absolute ml-4 font-semibold text-[0.2rem] ">${Name}</p>
+            <div class="flex ml-[0.225rem] mt-[0.3rem] gap-[0.165rem]">
+              <p class="text-[0.13rem]">PAC</p>
+              <p class="text-[0.13rem]">SHO</p>
+              <p class="text-[0.13rem]">PAS</p>
+              <p class="text-[0.13rem]">DRI</p>
+              <p class="text-[0.13rem]">DEF</p>
+              <p class="text-[0.13rem]">PHY</p>
+            </div>
+            <div class="flex ml-[0.220rem] mt-[-0.05rem] gap-[0.2rem]">
+              <p class="text-[0.17rem] font-bold">${pace}</p>
+              <p class="text-[0.17rem] font-bold">${sho}</p>
+              <p class="text-[0.17rem] font-bold">${pas}</p>
+              <p class="text-[0.17rem] font-bold">${dri}</p>
+              <p class="text-[0.17rem] font-bold">${def}</p>
+              <p class="text-[0.17rem] font-bold">${phy}</p>
+            </div>
+            <div class="flex ml-[0.9rem] mt-[0.1rem] gap-[0.4rem]">
+              <img class="w-[0.21rem]" src="img/120.webp" alt="">
+              <img class="h-[0.2rem] w-[0.3rem] mt-[]" src="img/ar.webp" alt="">
+            </div>
+          </div>
         </div>
-         <div class="flex flex-col items-center ml-[0.6rem] mt-[-0.450rem]">
-            <div class=" mt-1">
-                <p class="text-[0.650rem] font-medium text-white">${name}</p>
-            </div>
-            <div class="flex justify-center gap-1">
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">PAC</p>
-                    <p class="text-[0.5rem] font-bold text-white">${pace}</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">SHO</p>
-                    <p class="text-[0.5rem] font-bold text-white">${shooting}</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">PAS</p>
-                    <p class="text-[0.5rem] font-bold text-white">${passing}</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">DRI</p>
-                    <p class="text-[0.5rem] font-bold text-white">${dribbling}</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">DEF</p>
-                    <p class="text-[0.5rem] font-bold text-white">${defending}</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">PHY</p>
-                    <p class="text-[0.5rem] font-bold text-white">${physical}</p>
-                </div>
-            </div>
-            <div class="flex justify-center items-center gap-1 mt-[0.1rem]">
-                <img src="/img/argentina.webp" class="w-2" alt="">
-                <img src="/img/msl.webp" class="w-2" alt="">
-                <img src="/img/inter.webp" class="w-2" alt="">
-            </div>
-         </div>
-        
-    </div>
-</button>
-  `
-
-  addPositionToPlan(position, divPlayerCard); 
+      `;
+       
+      if(cardElement.status === "replacemet"){
+        replacemet.appendChild(div);
+      }else{
+        addPositionPlayer(cardElement.Post, div);
+      }
+  })
 }
 
-function addGkToPlan(name, position, diving, handling, kicking, reflexes, speed, positioning) {
-  let divPlayerCard = document.createElement("div");
-  divPlayerCard.innerHTML =`
-<button type="button" class="flex flex-col items-center">
-    <div class="bg-[url('/img/99_total_rush.webp')] bg-cover bg-no-repeat w-[8rem] h-[12rem] flex flex-col">
-        <div class="flex justify-center items-center mr-[-1.3rem] mt-[1.950rem]">
-            <span class="flex flex-col mt-[-2.5rem] mr-[-1rem]">
-                <p class="text-[0.625rem] font-bold text-white">${Math.floor((Number(diving) + Number(handling) + Number(kicking) + Number(reflexes) + Number(speed) + Number(positioning)) / 6)}</p>
-                <p class="text-[0.625rem] text-white">${position}</p>
-            </span>
-            <div class="bg-[url('/img/messi.png')] bg-cover bg-no-repeat w-[7rem] h-[5.75rem]">
-            </div>
-        </div>
-         <div class="flex flex-col items-center ml-[0.6rem] mt-[-0.450rem]">
-            <div class=" mt-1">
-                <p class="text-[0.650rem] font-medium text-white">${name}</p>
-            </div>
-            <div class="flex justify-center gap-1">
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">PAC</p>
-                    <p class="text-[0.5rem] font-bold text-white">${diving}</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">SHO</p>
-                    <p class="text-[0.5rem] font-bold text-white">${handling}</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">PAS</p>
-                    <p class="text-[0.5rem] font-bold text-white">${kicking}</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">DRI</p>
-                    <p class="text-[0.5rem] font-bold text-white">${reflexes}</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">DEF</p>
-                    <p class="text-[0.5rem] font-bold text-white">${speed}</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-[0.5rem] font-normal text-white">PHY</p>
-                    <p class="text-[0.5rem] font-bold text-white">${positioning}</p>
-                </div>
-            </div>
-            <div class="flex justify-center items-center gap-1 mt-[0.1rem]">
-                <img src="/img/argentina.webp" class="w-2" alt="">
-                <img src="/img/msl.webp" class="w-2" alt="">
-                <img src="/img/inter.webp" class="w-2" alt="">
-            </div>
-         </div>
-        
-    </div>
-</button>
-  `
-
-  addPositionGkToPlan(position,divPlayerCard); 
-}
-
-function addPositionToPlan(planPosition, divPlayerCard){
+function addPositionPlayer(planPosition, div) {
   switch (planPosition) {
     case "LW":
-      lw.innerHTML="";
-      lw.appendChild(divPlayerCard);
+      lw.appendChild(div);  // Append instead of overwriting
       break;
     case "ST":
-      st.innerHTML="";
-      st.appendChild(divPlayerCard);
+      st.appendChild(div);
       break;
     case "RW":
-      rw.innerHTML="";
-      rw.appendChild(divPlayerCard);
+      rw.appendChild(div);
       break;
     case "LCM":
-      lCm.innerHTML="";
-      lCm.appendChild(divPlayerCard);
+      lCm.appendChild(div);
       break;
-    case "CAM":
-      cAm.innerHTML="";
-      cAm.appendChild(divPlayerCard);
+    case "CDM":
+      cDm.appendChild(div);
       break;
     case "RCM":
-      rCm.innerHTML="";
-      rCm.appendChild(divPlayerCard);
+      rCm.appendChild(div);
       break;
     case "LB":
-      lb.innerHTML="";
-      lb.appendChild(divPlayerCard);
+      lb.appendChild(div);
       break;
     case "LCB":
-      lCb.innerHTML="";
-      lCb.appendChild(divPlayerCard);
+      lCb.appendChild(div);
       break;
     case "RCB":
-      rCb.innerHTML="";
-      rCb.appendChild(divPlayerCard);
+      rCb.appendChild(div);
       break;
     case "RB":
-      rb.innerHTML="";
-      rb.appendChild(divPlayerCard);
+      rb.appendChild(div);
       break;
   }
-}
-
-function addPositionGkToPlan(planPosition, divPlayerCard){
-  switch (planPosition) {
-    case "GK":
-      gk.innerHTML="";
-      gk.appendChild(divPlayerCard);
-      break;
-  }
-}
-
-function updateReplacement(name, position, pace, shooting, passing, dribbling, defending, physical) {
-  let replacementList = document.getElementById("replacement-list");
-  const replacementLimit = 14; 
-  
-  if (replacementList.children.length >= replacementLimit) {
-      alert("Replacement slots are full. Cannot add more players.");
-      return;
-  }
-
-  let li = document.createElement("li");
-  li.classList.add('list-none');
-  li.innerHTML = `
-<button type="button" class="flex flex-col items-center">
-  <div class="bg-[url('/img/99_total_rush.webp')] bg-cover bg-no-repeat w-[8rem] h-[12rem] flex flex-col">
-      <div class="flex justify-center items-center mr-[-1.3rem] mt-[1.950rem]">
-          <span class="flex flex-col mt-[-2.5rem] mr-[-1rem]">
-              <p class="text-[0.625rem] font-bold text-white">${Math.floor((Number(pace) + Number(shooting) + Number(passing) + Number(dribbling) + Number(defending) + Number(physical)) / 6)}</p>
-              <p class="text-[0.625rem] text-white">${position}</p>
-          </span>
-          <div class="bg-[url('/img/messi.png')] bg-cover bg-no-repeat w-[7rem] h-[5.75rem]">
-          </div>
-      </div>
-       <div class="flex flex-col items-center ml-[0.6rem] mt-[-0.450rem]">
-          <div class=" mt-1">
-              <p class="text-[0.650rem] font-medium text-white">${name}</p>
-          </div>
-          <div class="flex justify-center gap-1">
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">PAC</p>
-                  <p class="text-[0.5rem] font-bold text-white">${pace}</p>
-              </div>
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">SHO</p>
-                  <p class="text-[0.5rem] font-bold text-white">${shooting}</p>
-              </div>
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">PAS</p>
-                  <p class="text-[0.5rem] font-bold text-white">${passing}</p>
-              </div>
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">DRI</p>
-                  <p class="text-[0.5rem] font-bold text-white">${dribbling}</p>
-              </div>
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">DEF</p>
-                  <p class="text-[0.5rem] font-bold text-white">${defending}</p>
-              </div>
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">PHY</p>
-                  <p class="text-[0.5rem] font-bold text-white">${physical}</p>
-              </div>
-          </div>
-          <div class="flex justify-center items-center gap-1 mt-[0.1rem]">
-              <img src="/img/argentina.webp" class="w-2" alt="">
-              <img src="/img/msl.webp" class="w-2" alt="">
-              <img src="/img/inter.webp" class="w-2" alt="">
-          </div>
-       </div>
-  </div>
-</button>`;
-
-replacementList.appendChild(li);
-}
-
-function updateReplacementGK(name, position, diving, handling, kicking, reflexes, speed, positioning) {
-  let replacementList = document.getElementById("replacement-list");
-  const replacementLimit = 4; 
-  
-  if (replacementList.children.length >= replacementLimit) {
-      alert("Replacement slots are full. Cannot add more players.");
-      return;
-  }
-
-  let li = document.createElement("li");
-  li.classList.add('list-none');
-  li.innerHTML = `
-<button type="button" class="flex flex-col items-center">
-  <div class="bg-[url('/img/99_total_rush.webp')] bg-cover bg-no-repeat w-[8rem] h-[12rem] flex flex-col">
-      <div class="flex justify-center items-center mr-[-1.3rem] mt-[1.950rem]">
-          <span class="flex flex-col mt-[-2.5rem] mr-[-1rem]">
-              <p class="text-[0.625rem] font-bold text-white">${Math.floor((Number(diving) + Number(handling) + Number(kicking) + Number(reflexes) + Number(speed) + Number(positioning)) / 6)}</p>
-              <p class="text-[0.625rem] text-white">${position}</p>
-          </span>
-          <div class="bg-[url('/img/messi.png')] bg-cover bg-no-repeat w-[7rem] h-[5.75rem]">
-          </div>
-      </div>
-       <div class="flex flex-col items-center ml-[0.6rem] mt-[-0.450rem]">
-          <div class=" mt-1">
-              <p class="text-[0.650rem] font-medium text-white">${name}</p>
-          </div>
-          <div class="flex justify-center gap-1">
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">PAC</p>
-                  <p class="text-[0.5rem] font-bold text-white">${diving}</p>
-              </div>
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">SHO</p>
-                  <p class="text-[0.5rem] font-bold text-white">${handling}</p>
-              </div>
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">PAS</p>
-                  <p class="text-[0.5rem] font-bold text-white">${kicking}</p>
-              </div>
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">DRI</p>
-                  <p class="text-[0.5rem] font-bold text-white">${reflexes}</p>
-              </div>
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">DEF</p>
-                  <p class="text-[0.5rem] font-bold text-white">${speed}</p>
-              </div>
-              <div class="text-center">
-                  <p class="text-[0.5rem] font-normal text-white">PHY</p>
-                  <p class="text-[0.5rem] font-bold text-white">${positioning}</p>
-              </div>
-          </div>
-          <div class="flex justify-center items-center gap-1 mt-[0.1rem]">
-              <img src="/img/argentina.webp" class="w-2" alt="">
-              <img src="/img/msl.webp" class="w-2" alt="">
-              <img src="/img/inter.webp" class="w-2" alt="">
-          </div>
-       </div>
-  </div>
-</button>`;
-
-replacementList.appendChild(li);
 }
