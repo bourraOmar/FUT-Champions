@@ -23,7 +23,7 @@
   <!-- popUpForm -->
 
   <div id="form"
-    class="fixed shadow z-10 inset-0 bg-blue-900 bg-opacity-50 backdrop-blur-sm hidden flex items-center justify-center">
+    class="fixed shadow z-10 inset-0 bg-blue-900 bg-opacity-50 backdrop-blur-[12px] hidden flex items-center justify-center">
     <div id="creatForm" class="flex flex-col justify-center bg-blue-950  rounded-2xl">
       <h2 class="text-white text-center font-bold text-4xl m-4">Add Player</h2>
       <div id="Players" class="grid grid-cols-2 gap-x-4">
@@ -52,18 +52,18 @@
             <option class="text-black" value="ST">ST</option>
             <option class="text-black" value="LW">LW</option>
             <option class="text-black" value="RW">RW</option>
-            <option class="text-black" value="LCM">CM</option>
-            <option class="text-black" value="RCM">CM</option>
+            <option class="text-black" value="LCM">CML</option>
+            <option class="text-black" value="RCM">CMR</option>
             <option class="text-black" value="CDM">CDM</option>
             <option class="text-black" value="LB">LB</option>
-            <option class="text-black" value="LCB">CB</option>
-            <option class="text-black" value="RCB">CB</option>
+            <option class="text-black" value="LCB">CBL</option>
+            <option class="text-black" value="RCB">CBR</option>
             <option class="text-black" value="RB">RB</option>
             <option class="text-black" value="GK">GK</option>
           </select>
           <label class="text-white text-lg font-semibold mb-2">Remplacer/Plan</label>
           <select id="status" name="teamPlan" class="border-2 border-gray-700 rounded-lg p-2 bg-transparent text-white">
-            <!-- <option class="text-black" selected disabled>Remplacer/Plan</option> -->
+            <option class="text-black" selected disabled>Remplacer/Plan</option>
             <option class="text-black" value="REM">Remplacer</option>
             <option class="text-black" value="PL">Plan</option>
 
@@ -103,7 +103,7 @@
         </div>
       </div>
       <div class="flex  m-2 justify-around">
-        <input id="add-to-tshkila" type="submit"
+        <input id="addPlayers" type="submit"
           class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5"
           value="add player">
 
@@ -113,9 +113,9 @@
     </div>
 
   </div>
-  <div class="flex">
+  <div class="flex flex-col md:flex md:flex-row md:gap-11">
     <!-- Stadium Section -->
-    <div class="flex m-4 gap-4 md:flex md:flex-row md:gap-11">
+    <div class="flex m-4 gap-4 ">
       <div class="flex flex-col">
         <div id="staduim"
           class="bg-[url(img/stadium_background.webp)] bg-no-repeat bg-cover bg-center md:h-[820px] md:w-[893px] h-[400px] rounded-2xl">
@@ -123,88 +123,88 @@
           <div class="flex justify-center md:mb-1 mb-6 md:gap-32 gap-8">
             <div id="cardLw" class="flex flex-col items-center">
               <div
-                class="mt-5 md:mt-3 md:w-24 md:h-32 w-10 h-12 ">
+                class="mt-5 md:mt-3 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">LW</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">LW</p>
             </div>
 
             <div id="cardSt" class="flex flex-col items-center">
               <div
-                class="flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 ">
+                class="flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">ST</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">ST</p>
             </div>
 
             <div id="cardRw" class="flex flex-col items-center">
               <div
-                class="mt-5 md:mt-3 md:w-24 md:h-32 w-10 h-12 ">
+                class="mt-5 md:mt-3 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">RW</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">RW</p>
             </div>
           </div>
 
 
           <div class="flex justify-center md:gap-[10rem] gap-[5rem]">
             <div id="cardCml" class="flex flex-col items-center">
-              <div class="md:w-24 md:h-32 w-10 h-12 ">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CML</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CML</p>
             </div>
 
             <div id="cardCmr" class="flex flex-col items-center">
-              <div class="md:w-24 md:h-32 w-10 h-12 ">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CMR</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CMR</p>
             </div>
           </div>
 
 
           <div class="flex justify-center md:mb-1 mb-6">
             <div id="cardCdm" class="flex flex-col items-center">
-              <div class="md:w-24 md:h-32 w-10 h-12 ">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CDM</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CDM</p>
             </div>
           </div>
 
           <div class="flex justify-center md:mb-0 md:gap-[10rem] gap-[5rem]">
             <div id="cardLb" class="flex flex-col items-center">
-              <div class="md:w-24 md:h-32 w-10 h-12 ">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">LB</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">LB</p>
             </div>
 
             <div id="cardCbl" class="flex flex-col items-center">
-              <div class="md:w-24 md:h-32 w-10 h-12 ">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CBL</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CBL</p>
             </div>
 
             <div id="cardCbr" class="flex flex-col items-center">
-              <div class="md:w-24 md:h-32 w-10 h-12 ">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CBR</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">CBR</p>
             </div>
 
             <div id="cardRb" class="flex flex-col items-center">
-              <div class="md:w-24 md:h-32 w-10 h-12 ">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">RB</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">RB</p>
             </div>
           </div>
 
           <div class="flex justify-center md:mt-4 mt-10">
             <div id="cardGk" class="flex flex-col items-center">
-              <div class="md:w-24 md:h-32 w-10 h-12 ">
+              <div class="md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
               </div>
-              <!-- <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">GK</p> -->
+              <p class="bg-gray-900 text-white rounded-[50%] text-center text-[8px] md:text-xs w-6 md:w-10">GK</p>
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- remplacement  -->
-    <div class=" bg-blue-950 w-full rounded-2xl m-4">
+    <div class=" bg-blue-950 md:w-full rounded-2xl m-4">
       <h2 class=" text-white text-center font-bold text-4xl m-7">Remplacement</h2>
       <div id="remplacement" class="grid grid-cols-6 mb-4">
       </div>
@@ -212,9 +212,9 @@
   </div>
   </div>
   <!-- updatable players section -->
-  <div class="w-full p-5 bg-white">
-    <p class="text-center text-2xl font-bold">Update Players</p>
-    <ul id="players" class="underline cursor-pointer text-blue-500">
+  <div class="bg-blue-950 rounded-2xl p-4 m-4">
+    <p class="text-white text-center font-bold text-4xl ">Update Players</p>
+    <ul id="players" class="flex gap-2 cursor-pointer text-blue-500 ">
         <li></li>
     </ul>
   </div>

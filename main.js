@@ -12,11 +12,9 @@ let rb = document.getElementById('cardRb');
 let gk = document.getElementById('cardGk');
 
 let remplacement = document.getElementById('remplacement');
+
 let playersList = document.getElementById('players');
 
-
-const ajoutForm = document.getElementById('ajoutForm');
-const createForm = document.getElementById('createForm');
 let inputName = document.getElementById('Name');
 let inputNastion = document.getElementById('Nastionality');
 let inputClub = document.getElementById('Club');
@@ -29,8 +27,8 @@ let defInput = document.getElementById('Def');
 let phyInput = document.getElementById('Phy');
 let statusInput = document.getElementById('status');
 
-// Buttons for adding and submitting players
-let addToTshkila = document.getElementById('add-to-tshkila');
+// Button
+let addPlayers = document.getElementById('addPlayers');
 
 
 let players = [];
@@ -44,6 +42,8 @@ const closePopup = document.getElementById('close');
 const formPopup = document.getElementById('form');
 let addPlayer = document.getElementById('addPlayer');
 
+
+
 // hide player adding form
 function closePopupFunction() {
     formPopup.classList.add('hidden');
@@ -56,25 +56,21 @@ openPopup.addEventListener("click", () => {
 
 closePopup.addEventListener("click", closePopupFunction);
 
-
-
 // Add to the team
-addToTshkila.addEventListener("click", function () {
+addPlayers.addEventListener("click", function () {
     if (statusInput.value !== "" && inputName.value !== "" && inputNastion.value !== "" && inputClub.value !== "" && inputPost.value !== "" && paceInput.value !== "" && shoInput.value !== "" && pasInput.value !== "" && driInput.value !== "" && defInput.value !== "" && phyInput.value !== "") {
+
         ajouteToPlan(inputName.value, inputPost.value, paceInput.value, shoInput.value, pasInput.value, driInput.value, defInput.value, phyInput.value, statusInput.value);
-        addToList(inputName.value, inputPost.value, paceInput.value, shoInput.value, pasInput.value, driInput.value, defInput.value, phyInput.value, statusInput.value);
+
+        addToArray(inputName.value, inputPost.value, paceInput.value, shoInput.value, pasInput.value, driInput.value, defInput.value, phyInput.value, statusInput.value);
     } else {
         alert('Please complete the form!');
     }
 });
 
-
-
-    
-
 // Add player details to the list
 
-function addToList(Name, Post, pace, sho, pas, dri, def, phy, status) {
+function addToArray(Name, Post, pace, sho, pas, dri, def, phy, status) {
      
      
     let cardElement = {
@@ -87,7 +83,6 @@ function addToList(Name, Post, pace, sho, pas, dri, def, phy, status) {
         def: def,
         phy: phy,
         status: status,
-        id : players.length
         
     };
     
@@ -114,38 +109,26 @@ function updatePlayersList() {
     playersList.innerHTML = "";
     players.forEach((player) => {
         const li = document.createElement("li");
-        li.classList.add('flex', 'gap-4');
-        
-        li.innerHTML = `
-        <p>${player.Name}</p>
-        <button class="bg-red-700 p-1 text-white rounded-lg">delete</button>`;
-        let button = li.querySelector('button');
-        button.addEventListener('click', function () {
-            deleteFromTheList(player.Name);
-        });
-
+        // li.classList.add('flex', 'gap-4');        
+        li.innerHTML = `<p class="bg-white px-4 py-1 rounded-full">${player.Name}</p>`;
         playersList.appendChild(li);
 
-        li.addEventListener('click', () => {
-            // add update form logic
+        // li.addEventListener('click', () => {
+        //     // add update form logic
 
-            editIndex = index;
-            submitInput.value = "Save";
-            formPopup.classList.remove("hidden");
-            console.log("updatable player data ")
-            console.log(player)
-        })
+        //     editIndex = index;
+        //     submitInput.value = "Save";
+        //     formPopup.classList.remove("hidden");
+        //     console.log("updatable player data ")
+        //     console.log(player)
+        // })
     });
 }
 
-console.log(players)
-function ajouteToPlan(Name, Post, pace, sho, pas, dri, def, phy, status  ) {
+function ajouteToPlan(Name, Post, pace, sho, pas, dri, def, phy, status) {
     let div = document.createElement("div");
-   
-   
-
     div.innerHTML = `
- <div class="relative flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
+ <div class="relative flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center hover:scale-150">
       <div class="scale-[2] ml-9 mt-[0.3rem]">
         <div class="absolute ml-1 mt-1">
           <p class="text-[0.3rem] font-bold">${Math.floor((Number(pace) + Number(sho) + Number(pas) + Number(dri) + Number(def) + Number(phy)) / 6)}</p>
@@ -176,8 +159,7 @@ function ajouteToPlan(Name, Post, pace, sho, pas, dri, def, phy, status  ) {
       </div>
     </div>
   `;
-    
-   
+     
     if (status == "PL")
         addPositionToPlan(Post, div); 
     else
@@ -188,7 +170,6 @@ function ajouteToPlan(Name, Post, pace, sho, pas, dri, def, phy, status  ) {
 function addPositionToRemplacement(div) {
     remplacement.appendChild(div);
 }
-
 
 // Add the player card to the correct position section
 function addPositionToPlan(planPosition, div) {
@@ -235,27 +216,3 @@ function addPositionToPlan(planPosition, div) {
             break;
     }
 }
-function deleteFromTheList(name, card = null) {
-    // Remove player from the array
-    players = players.filter(player => player.Name !== name);
-
-    // Update the players list display
-    updatePlayersList();
-
-    // Remove the card if provided
-    if (card) {
-        card.remove();
-        return;
-    }
-
-    // Search for and remove the player's card from containers
-    const containers = [remplacement, lw, st, rw, lCm, cDm, rCm, lb, lCb, rCb, rb];
-    containers.forEach(container => {
-        const playerCard = Array.from(container.children).find(child => 
-            child.querySelector("p.font-semibold")?.textContent === name
-        );
-        if (playerCard) playerCard.remove();
-    });
-}
-
-
