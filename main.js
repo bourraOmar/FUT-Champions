@@ -178,16 +178,10 @@ function ajouteToPlan(Name, Post, pace, sho, pas, dri, def, phy, status  ) {
   `;
     
    
-    if (status == "PL"){
-
-        addPositionToPlan(Post, div);
-      
-    }else{
+    if (status == "PL")
+        addPositionToPlan(Post, div); 
+    else
         addPositionToRemplacement(div);
-        
-    }
-    
-
 }
 
 // add player to replacement div
@@ -265,6 +259,3 @@ function deleteFromTheList(name, card = null) {
 }
 
 
-function popUp(position) {
-    
-}
