@@ -31,12 +31,10 @@ let statusInput = document.getElementById('status');
 
 // Buttons for adding and submitting players
 let addToTshkila = document.getElementById('add-to-tshkila');
-let PlayerPlanCount = 0;
-let gkPlanCount = 0;
-let occupiedPositions = {};
+
 
 let players = [];
-
+console.log(players);
 
 let index = -1;
 let createCard = document.getElementById('card-replacemet');
@@ -70,8 +68,15 @@ addToTshkila.addEventListener("click", function () {
     }
 });
 
+
+
+    
+
 // Add player details to the list
+
 function addToList(Name, Post, pace, sho, pas, dri, def, phy, status) {
+     
+     
     let cardElement = {
         Name: Name,
         Post: Post,
@@ -81,8 +86,11 @@ function addToList(Name, Post, pace, sho, pas, dri, def, phy, status) {
         dri: dri,
         def: def,
         phy: phy,
-        status: status
+        status: status,
+        id : players.length
+        
     };
+    
     players.push(cardElement);
 
     inputName.value = "";
@@ -106,20 +114,36 @@ function updatePlayersList() {
     playersList.innerHTML = "";
     players.forEach((player) => {
         const li = document.createElement("li");
-        li.textContent = player.Name;
+        li.classList.add('flex', 'gap-4');
+        
+        li.innerHTML = `
+        <p>${player.Name}</p>
+        <button class="bg-red-700 p-1 text-white rounded-lg">delete</button>`;
+        let button = li.querySelector('button');
+        button.addEventListener('click', function () {
+            deleteFromTheList(player.Name);
+        });
+
         playersList.appendChild(li);
 
         li.addEventListener('click', () => {
             // add update form logic
+
+            editIndex = index;
+            submitInput.value = "Save";
+            formPopup.classList.remove("hidden");
             console.log("updatable player data ")
             console.log(player)
         })
     });
 }
 
-
-function ajouteToPlan(Name, Post, pace, sho, pas, dri, def, phy, status) {
+console.log(players)
+function ajouteToPlan(Name, Post, pace, sho, pas, dri, def, phy, status  ) {
     let div = document.createElement("div");
+   
+   
+
     div.innerHTML = `
  <div class="relative flex flex-col justify-center mt-3 md:mt-0 md:w-24 md:h-32 w-10 h-12 bg-[url('img/card-normal.webp')] bg-no-repeat bg-cover bg-center">
       <div class="scale-[2] ml-9 mt-[0.3rem]">
@@ -152,12 +176,18 @@ function ajouteToPlan(Name, Post, pace, sho, pas, dri, def, phy, status) {
       </div>
     </div>
   `;
+    
+   
+    if (status == "PL"){
 
-    // Add player to the appropriate position in the team
-    if (status == "PL")
         addPositionToPlan(Post, div);
-    else
+      
+    }else{
         addPositionToRemplacement(div);
+        
+    }
+    
+
 }
 
 // add player to replacement div
@@ -210,4 +240,31 @@ function addPositionToPlan(planPosition, div) {
             rb.appendChild(div);
             break;
     }
+}
+function deleteFromTheList(name, card = null) {
+    // Remove player from the array
+    players = players.filter(player => player.Name !== name);
+
+    // Update the players list display
+    updatePlayersList();
+
+    // Remove the card if provided
+    if (card) {
+        card.remove();
+        return;
+    }
+
+    // Search for and remove the player's card from containers
+    const containers = [remplacement, lw, st, rw, lCm, cDm, rCm, lb, lCb, rCb, rb];
+    containers.forEach(container => {
+        const playerCard = Array.from(container.children).find(child => 
+            child.querySelector("p.font-semibold")?.textContent === name
+        );
+        if (playerCard) playerCard.remove();
+    });
+}
+
+
+function popUp(position) {
+    
 }
