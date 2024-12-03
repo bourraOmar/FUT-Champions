@@ -12,8 +12,6 @@ Prise en charge des formations tactiques suivantes : 4-3-3 : GK, 2 CB, LB, R
 3. Gestion des Cartes de Joueurs
 Ajout et suppression des joueurs via une interface intuitive. Limitation stricte à 11 joueurs dans l'équipe principale. Les joueurs restants sont ajoutés à la liste de réserve.
 
-4. Formulaires Dynamiques pour la Gestion des Joueurs
-Validation des champs du formulaire pour garantir la cohérence des données. Gestion dynamique : Vérification des noms pour éviter les doublons. Contrôle du nombre de joueurs dans chaque position selon la formation.
 
-5. Responsive Design
+4. Responsive Design
 Interface optimisée pour s'adapter à toutes les tailles d'écran (desktop, tablette, mobile). Design ergonomique pour une expérience utilisateur fluide. Technologies Utilisées HTML : Pour la structure de la page. CSS / Tailwind CSS : Pour le style et la mise en page. JavaScript Vanilla : Pour les interactions dynamiques.
