@@ -44,12 +44,12 @@ let addPlayer = document.getElementById('addPlayer');
 
 
 
-// hide player adding form
+// hide form
 function closePopupFunction() {
     formPopup.classList.add('hidden');
 }
 
-// Popup toggle for player form
+// Popup form
 openPopup.addEventListener("click", () => {
     formPopup.classList.remove('hidden');
 });
@@ -104,24 +104,14 @@ function addToArray(Name, Post, pace, sho, pas, dri, def, phy, status) {
     closePopupFunction();
 }
 
-// add a <li></li> for each player added
 function updatePlayersList() {
     playersList.innerHTML = "";
     players.forEach((player) => {
         const li = document.createElement("li");
-        // li.classList.add('flex', 'gap-4');        
+   
         li.innerHTML = `<p class="bg-white px-4 py-1 rounded-full">${player.Name}</p>`;
         playersList.appendChild(li);
 
-        // li.addEventListener('click', () => {
-        //     // add update form logic
-
-        //     editIndex = index;
-        //     submitInput.value = "Save";
-        //     formPopup.classList.remove("hidden");
-        //     console.log("updatable player data ")
-        //     console.log(player)
-        // })
     });
 }
 
@@ -213,6 +203,10 @@ function addPositionToPlan(planPosition, div) {
         case "RB":
             rb.innerHTML = "";
             rb.appendChild(div);
+            break;
+        case "GK":
+            gk.innerHTML = "";
+            gk.appendChild(div);
             break;
     }
 }
